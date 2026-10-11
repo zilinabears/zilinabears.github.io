@@ -39,8 +39,30 @@ def get(path, params, token):
     params = dict(params, access_token=token)
     r = requests.get(f"{API}/{path}" if not path.startswith("http") else path, params=params, timeout=30)
     if r.status_code != 200:
-        raise RuntimeError(f"Graph API {path}: {r.status_code} {r.text[:300]}")
+        raise MetaError(r)
     return r.json()
+
+
+HINTS = {
+    190: "Kľúč (META_TOKEN) vypršal alebo bol zrušený. Vygeneruj nový v Business Suite → System users → web-bot → Generate token.",
+    200: "Meta zablokovala prístup aplikácie (API access blocked). Skontroluj na developers.facebook.com, či aplikácia nemá upozornenie alebo obmedzenie.",
+    10: "Kľúču chýba oprávnenie. Vygeneruj nový token so všetkými oprávneniami z README.",
+    100: "Zlé ID stránky (FB_PAGE_ID) alebo nepodporované pole.",
+    4: "Prekročený limit volaní. Ďalší beh to skúsi znova.",
+    17: "Prekročený limit volaní. Ďalší beh to skúsi znova.",
+}
+
+
+class MetaError(RuntimeError):
+    def __init__(self, r):
+        try:
+            e = r.json().get("error", {})
+        except ValueError:
+            e = {}
+        self.code = e.get("code")
+        msg = e.get("message") or r.text[:200]
+        hint = HINTS.get(self.code, "Neznáma chyba Mety, pošli tento výpis správcovi webu.")
+        super().__init__(f"Meta API chyba {self.code} (HTTP {r.status_code}): {msg}\n→ {hint}")
 
 
 def paged(path, params, token):
@@ -191,4 +213,9 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except MetaError as e:
+        print(f"::error title=Sťahovanie z FB/IG zlyhalo::{e}".replace("\n", "%0A"))
+        print(e)
+        sys.exit(1)
