@@ -9,6 +9,8 @@ sa upravuje priamo v HTML.
 | Cesta | Čo to je |
 | --- | --- |
 | `index.html` | Úvodná stránka – tréningy, nábor, o klube, kontakt |
+| `ragby.html` | Sekcia O ragby – články a materiály na stiahnutie |
+| `obsah/` | Texty článkov O ragby, ich obrázky a súbory |
 | `noviny.html` | Zoznam noviniek s filtrom podľa zdroja |
 | `clanok.html?id=…` | Detail príspevku alebo archívneho článku |
 | `assets/css/style.css` | Celý vzhľad webu |
@@ -29,6 +31,28 @@ zobrazí sa žltým v úvode; keď ju vymažeš na `""`, zmizne. Web sa aktualiz
 
 **Skrytie príspevku:** ID príspevku je v adrese článku (`clanok.html?id=fb-123_456`).
 Pridaj ho do `data/hidden.json`, napr. `["fb-123_456"]`. Pri ďalšom behu zmizne.
+
+## Sekcia „O ragby“ – články a materiály na stiahnutie
+
+Články sú obyčajné textové súbory v priečinku `obsah/`. Web ich zobrazí na stránke `ragby.html`
+a tri najnovšie aj na úvodnej stránke.
+
+**Nový článok:** na GitHube otvor `obsah/_vzor.md`, skopíruj jeho obsah, potom v priečinku `obsah`
+klikni *Add file → Create new file*, pomenuj ho napr. `skrumaz.md` (bez medzier a diakritiky),
+vlož text, uprav hlavičku a klikni *Commit changes*. Do 2 minút je na webe.
+
+**Obrázky a súbory na stiahnutie** (PDF plagáty, brožúrky…) nahraj cez *Add file → Upload files*
+do `obsah/obrazky/` resp. `obsah/subory/` a v hlavičke článku na ne odkáž:
+
+```
+obrazok: obsah/obrazky/skrumaz.jpg
+subor: obsah/subory/plagat.pdf | Plagát A5 (PDF)
+```
+
+Kategórie si vymýšľaš sám (napr. Pravidlá, História, Pre rodičov, Na stiahnutie) – web z nich
+automaticky spraví filter. Článok zmažeš tak, že zmažeš jeho `.md` súbor.
+
+Lokálne si zmeny pozrieš po spustení `python scripts/build_content.py`.
 
 ## Nastavenie (raz)
 

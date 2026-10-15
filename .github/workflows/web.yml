@@ -42,6 +42,8 @@ jobs:
           FB_PAGE_ID: ${{ vars.FB_PAGE_ID }}
           IG_USER_ID: ${{ vars.IG_USER_ID }}
         run: python scripts/fetch_social.py ${{ inputs.all && '--all' || '' }}
+      - name: Zostaviť články O ragby
+        run: python scripts/build_content.py
       - name: Uložiť zmeny do repozitára
         run: |
           git config user.name "zilinabears-bot"

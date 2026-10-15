@@ -36,22 +36,25 @@
     const d = new Date(iso);
     return isNaN(d) ? "" : d.toLocaleDateString("sk-SK", { day: "numeric", month: "numeric", year: "numeric" });
   };
-  const badge = (p) => `<span class="badge ${esc(p.source)}">${esc(SRC[p.source] || p.source)}</span>`;
+  const badge = (p) => p.source === "ragby"
+    ? `<span class="badge ragby">${esc(p.category || "Článok")}</span>`
+    : `<span class="badge ${esc(p.source)}">${esc(SRC[p.source] || p.source)}</span>`;
+  const href = (p) => p.source === "ragby" ? `clanok.html?r=${encodeURIComponent(p.id)}` : `clanok.html?id=${encodeURIComponent(p.id)}`;
   const card = (p) => `
-    <a class="post" href="clanok.html?id=${encodeURIComponent(p.id)}">
+    <a class="post" href="${href(p)}">
       ${p.thumb
         ? `<img class="thumb" src="${esc(p.thumb)}" alt="" loading="lazy">`
         : `<span class="thumb none" aria-hidden="true"><svg width="48" height="48" viewBox="0 0 44 44"><path d="M22 2 L40 9 V22 C40 32 32 39 22 42 C12 39 4 32 4 22 V9 Z" fill="none" stroke="currentColor" stroke-width="3"/></svg></span>`}
       <span class="body">
-        <span class="meta">${badge(p)}<span class="d">${fmtDate(p.date)}</span></span>
+        <span class="meta">${badge(p)}<span class="d">${fmtDate(p.date)}</span>${p.files ? `<span class="d">· ${p.files === 1 ? "1 súbor" : p.files + " súbory"} na stiahnutie</span>` : ""}</span>
         <h3>${esc(p.title)}</h3>
         ${p.excerpt ? `<p>${esc(p.excerpt)}</p>` : ""}
       </span>
     </a>`;
 
-  async function loadIndex() {
-    const r = await fetch("data/posts.json", { cache: "no-cache" });
-    if (!r.ok) throw new Error("posts.json");
+  async function loadIndex(file = "data/posts.json") {
+    const r = await fetch(file, { cache: "no-cache" });
+    if (!r.ok) throw new Error(file);
     const list = await r.json();
     return list.sort((a, b) => (a.date < b.date ? 1 : -1));
   }
@@ -77,7 +80,7 @@
 
   // ---------- úvodná stránka: 3 najnovšie
   const home = document.getElementById("home-news");
-  if (home) loadIndex().then((l) => { home.innerHTML = l.slice(0, 3).map(card).join(""); }).catch(() => fail(home));
+  if (home) loadIndex().then((l) => { home.innerHTML = l.slice(0, 6).map(card).join(""); }).catch(() => fail(home));
 
   // ---------- stránka Noviny
   const list = document.getElementById("news-list");
@@ -101,13 +104,39 @@
     loadIndex().then((l) => { all = l; render(); }).catch(() => fail(list));
   }
 
+  // ---------- O ragby: ukážka na úvode a zoznam s filtrom kategórií
+  const hr = document.getElementById("home-ragby");
+  if (hr) loadIndex("data/ragby.json").then((l) => {
+    if (!l.length) { hr.closest("section").hidden = true; return; }
+    hr.innerHTML = l.slice(0, 3).map(card).join("");
+  }).catch(() => { hr.closest("section").hidden = true; });
+
+  const rl = document.getElementById("ragby-list");
+  if (rl) {
+    const chipsEl = document.getElementById("chips");
+    let all = [], filter = "all";
+    const render = () => {
+      const cats = [...new Set(all.map((p) => p.category))].sort((a, b) => a.localeCompare(b, "sk"));
+      chipsEl.innerHTML = [["all", "Všetko"], ...cats.map((c) => [c, c])].map(([id, l]) =>
+        `<button type="button" class="chip" data-f="${esc(id)}" aria-pressed="${filter === id}">${esc(l)} <span style="opacity:.7">(${id === "all" ? all.length : all.filter((p) => p.category === id).length})</span></button>`).join("");
+      chipsEl.querySelectorAll(".chip").forEach((b) => b.addEventListener("click", () => { filter = b.dataset.f; render(); }));
+      const shown = filter === "all" ? all : all.filter((p) => p.category === filter);
+      rl.innerHTML = shown.length ? `<div class="grid news">${shown.map(card).join("")}</div>` : '<div class="empty">Zatiaľ tu nič nie je.</div>';
+    };
+    loadIndex("data/ragby.json").then((l) => { all = l; render(); })
+      .catch(() => { rl.innerHTML = '<div class="empty">Články sa nepodarilo načítať.</div>'; });
+  }
+
   // ---------- detail článku
   const art = document.getElementById("article");
   if (art) {
-    const id = new URLSearchParams(location.search).get("id");
+    const qs = new URLSearchParams(location.search);
+    const rid = qs.get("r");
+    const id = rid || qs.get("id");
+    const back = rid ? '<a class="back" href="ragby.html">← Späť na O ragby</a>' : '<a class="back" href="noviny.html">← Späť na noviny</a>';
     const linkify = (t) => esc(t).replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" rel="noopener">$1</a>');
     const paras = (t) => String(t || "").split(/\n{2,}/).map((p) => `<p>${linkify(p.trim())}</p>`).join("");
-    fetch(`data/posts/${encodeURIComponent(id || "")}.json`, { cache: "no-cache" })
+    fetch(`data/${rid ? "ragby" : "posts"}/${encodeURIComponent(id || "")}.json`, { cache: "no-cache" })
       .then((r) => { if (!r.ok) throw 0; return r.json(); })
       .then((p) => {
         document.title = `${p.title} – Žilina Bears`;
@@ -118,14 +147,17 @@
         const links = [p.link ? { source: p.source, link: p.link } : null, ...(p.also_on || [])].filter(Boolean)
           .filter((x) => x.source !== "archiv")
           .map((x) => `<a class="btn btn-d" href="${esc(x.link)}" rel="noopener">Pozri na ${esc(SRC[x.source] || x.source)} →</a>`).join(" ");
+        const files = (p.files || []).length ? `<div class="files"><h2>Na stiahnutie</h2>${p.files.map((f) =>
+          `<a class="file" href="${esc(f.href)}" download><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg><span>${esc(f.label)}</span></a>`).join("")}</div>` : "";
         art.innerHTML = `
-          <a class="back" href="noviny.html">← Späť na noviny</a>
+          ${back}
           <div class="meta">${badge(p)}${(p.also_on || []).map(badge).join("")}<span class="d">${fmtDate(p.date)}</span></div>
           <h1>${esc(p.title)}</h1>
           ${p.excerpt && p.html ? `<p class="lead">${esc(p.excerpt)}</p>` : ""}
           ${cover}
           <div class="content ${p.html ? "" : "text"}">${p.html || paras(p.text)}</div>
           ${gallery}
+          ${files}
           <div style="display:flex;flex-wrap:wrap;gap:12px;padding-top:16px;border-top:2px solid var(--line)">
             ${links}<a class="btn btn-y" href="https://wa.me/421911913244">Chcem sa pridať</a>
           </div>`;
@@ -139,7 +171,7 @@
           });
         });
       })
-      .catch(() => { art.innerHTML = '<a class="back" href="noviny.html">← Späť na noviny</a><div class="empty">Tento článok sme nenašli.</div>'; });
+      .catch(() => { art.innerHTML = back + '<div class="empty">Tento článok sme nenašli.</div>'; });
     const lb = document.querySelector(".lb");
     const close = () => lb.classList.remove("open");
     lb.addEventListener("click", (e) => { if (e.target === lb || e.target.tagName === "BUTTON") close(); });
