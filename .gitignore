@@ -1,2 +1,4 @@
 data/ragby/
 data/ragby.json
+__pycache__/
+*.pyc
