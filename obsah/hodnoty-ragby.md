@@ -1,8 +1,9 @@
 ---
 nazov: Päť hodnôt ragby
-datum: 2026-10-14
+datum: 2026-10-15
 kategoria: O hre
 perex: Integrita, vášeň, solidarita, disciplína a rešpekt. Čo znamenajú hodnoty, na ktorých stojí ragby na celom svete, a ako vyzerajú u nás na ihrisku.
+obrazok: obsah/obrazky/hodnoty-ragby/foto-zapas.jpg
 ---
 Ragby nie je len o pravidlách, ale aj o tom, ako sa hráči správajú na ihrisku a mimo neho. Členské zväzy svetovej organizácie **World Rugby** sa v roku **2009** dohodli na piatich hodnotách, ktoré podľa nich ragby vystihujú a odlišujú od iných športov. Sú súčasťou *World Rugby Playing Charter*, dokumentu, ktorý má chrániť charakter hry. Platia pre každého hráča bez ohľadu na veľkosť, vek či postavu.
 
@@ -31,6 +32,8 @@ Disciplína je súčasťou hry **na ihrisku aj mimo neho**. Znamená dodržiava�
 *Na tréningu:* chodíš načas, počúvaš trénera a na ihrisku robíš to, čo je dobré pre tím, nie pre teba.
 
 ## Rešpekt
+
+![rozhodca a kapitán](obsah/obrazky/hodnoty-ragby/rozhodca.jpg)
 
 Rešpekt k **spoluhráčom, súperom, rozhodcom a všetkým, ktorí sa na hre podieľajú**, je prvoradý.
 

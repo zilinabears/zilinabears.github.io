@@ -51,6 +51,17 @@ def parse(path):
     return meta, files, m.group(2)
 
 
+def figures(html):
+    """Obrázok na samostatnom riadku s popisom ![alt](cesta "popis") → <figure> s viditeľným popisom."""
+    def rep(m):
+        img = m.group(1)
+        t = re.search(r'title="([^"]*)"', img)
+        img = re.sub(r'\s*title="[^"]*"', "", img).replace("<img ", '<img loading="lazy" ', 1)
+        cap = f"<figcaption>{t.group(1)}</figcaption>" if t else ""
+        return f"<figure>{img}{cap}</figure>"
+    return re.sub(r"<p>\s*(<img [^>]*>)\s*</p>", rep, html)
+
+
 def main():
     os.makedirs(OUT, exist_ok=True)
     index, errors = [], 0
@@ -69,6 +80,7 @@ def main():
             if not f["href"].startswith("http") and not os.path.exists(os.path.join(ROOT, f["href"])):
                 print(f"::warning file=obsah/{name}::súbor {f['href']} neexistuje")
         html = markdown.markdown(body, extensions=["extra", "sane_lists"])
+        html = figures(re.sub(r"<!--.*?-->\s*", "", html, flags=re.S))
         rec = {"id": slug, "source": "ragby", "title": meta["nazov"], "date": meta.get("datum", ""),
                "category": meta.get("kategoria", "Články"), "excerpt": meta.get("perex", ""),
                "thumb": meta.get("obrazok") or None}
