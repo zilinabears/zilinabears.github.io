@@ -65,16 +65,61 @@
   const hs = document.getElementById("hero-sched");
   if (hs) {
     const PIN = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1E5B3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>';
+    const DAY = 864e5;
+    const today = new Date(); today.setHours(0, 0, 0, 0);
+    const toDate = (s) => { const [y, m, d] = String(s).split("-").map(Number); return new Date(y, m - 1, d); };
+    const sk = (dt) => `${dt.getDate()}. ${dt.getMonth() + 1}.`;
+    const MES = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    const en = (dt) => `${dt.getDate()} ${MES[dt.getMonth()]}`;
+    const VOPRED = 7, PO = 7;   // koľko dní pred zmenou a po nej ju web hlási
+
+    // Zmena v treningy.json: blok "zmena" s dátumom "od" (a voliteľne "do") a len tými údajmi, ktoré sa menia.
+    const apply = (x) => {
+      const z = x.zmena;
+      if (!z || !z.od) return x;
+      const od = toDate(z.od), dok = z.do ? toDate(z.do) : null;
+      const nove = Object.assign({}, x, z); delete nove.zmena;
+      const kym = Math.round((od - today) / DAY);
+      const info = { od, dok, nove };
+      if (dok && today > dok) return x;                                    // dočasná zmena skončila
+      if (kym > VOPRED) return x;                                          // ešte priskoro hlásiť
+      if (kym > 0) return Object.assign({}, x, { _pripravuje: info });     // o pár dní
+      return Object.assign(nove, { _zmena: (dok || -kym < PO) ? info : null }); // už platí
+    };
+    const cas = (x) => `${x.den} ${x.cas}, ${x.miesto}`;
+    const obdobie = (i) => i.dok ? `od ${sk(i.od)} do ${sk(i.dok)}` : `od ${sk(i.od)}`;
+    const mapa = (x) => x.mapa ? ` <a href="${esc(x.mapa)}">Mapa →</a>` : "";
+
     fetch("data/treningy.json", { cache: "no-cache" }).then((r) => r.json()).then((d) => {
-      const t = (d.treningy || []).filter((x) => x.den && x.cas);
+      const t = (d.treningy || []).filter((x) => x.den && x.cas).map(apply);
       if (!t.length) return;
-      hs.innerHTML = t.map((x) => `<li><span class="hs-g">${esc(x.skupina)}</span><span class="hs-t">${esc(x.den)} <b>${esc(x.cas)}</b></span><span class="hs-p">${esc(x.miesto)}</span></li>`).join("");
+      const pozn = (x) => x._pripravuje ? `<span class="hs-z">Od ${sk(x._pripravuje.od)}: ${esc(x._pripravuje.nove.den)} <b>${esc(x._pripravuje.nove.cas)}</b> · ${esc(x._pripravuje.nove.miesto)}</span>`
+        : x._zmena ? `<span class="hs-z">Zmena ${esc(obdobie(x._zmena))}</span>` : "";
+      hs.innerHTML = t.map((x) => `<li${x._pripravuje || x._zmena ? ' class="zmena"' : ""}><span class="hs-g">${esc(x.skupina)}</span><span class="hs-t">${esc(x.den)} <b>${esc(x.cas)}</b></span><span class="hs-p">${esc(x.miesto)}</span>${pozn(x)}</li>`).join("");
       const grid = document.getElementById("train-grid");
-      if (grid) grid.innerHTML = t.map((x) => `<article class="card"><div class="kicker" style="letter-spacing:1px">${esc(x.skupina)}</div><h3>${esc(x.den)} ${esc(x.cas)}</h3><div class="row">${PIN}<span>${esc(x.miesto)}</span></div>${x.mapa ? `<a class="more" href="${esc(x.mapa)}">Otvoriť v mape →</a>` : ""}</article>`).join("");
-      const en = document.getElementById("en-sched");
-      if (en) en.innerHTML = t.map((x) => `<strong>${esc(x.en_skupina || x.skupina)}:</strong> ${esc(x.en_den || x.den)} ${esc(x.cas)}, ${esc(x.en_miesto || x.miesto)}.`).join(" ");
+      if (grid) grid.innerHTML = t.map((x) => {
+        const p = x._pripravuje, z = x._zmena;
+        const box = p ? `<div class="zmena-box"><strong>Zmena ${esc(obdobie(p))}</strong>${esc(cas(p.nove))}${mapa(p.nove)}</div>`
+          : z ? `<div class="zmena-box"><strong>Nové ${esc(obdobie(z))}</strong>Pozor na zmenený čas alebo miesto.</div>` : "";
+        return `<article class="card"><div class="kicker" style="letter-spacing:1px">${esc(x.skupina)}</div><h3>${esc(x.den)} ${esc(x.cas)}</h3><div class="row">${PIN}<span>${esc(x.miesto)}</span></div>${box}${x.mapa ? `<a class="more" href="${esc(x.mapa)}">Otvoriť v mape →</a>` : ""}</article>`;
+      }).join("");
+      const ens = document.getElementById("en-sched");
+      if (ens) ens.innerHTML = t.map((x) => {
+        const p = x._pripravuje, n = p && p.nove;
+        const zm = n ? ` <em>From ${en(p.od)}${p.dok ? ` to ${en(p.dok)}` : ""}: ${esc(n.en_den || n.den)} ${esc(n.cas)}, ${esc(n.en_miesto || n.miesto)}.</em>` : "";
+        return `<strong>${esc(x.en_skupina || x.skupina)}:</strong> ${esc(x.en_den || x.den)} ${esc(x.cas)}, ${esc(x.en_miesto || x.miesto)}.${zm}`;
+      }).join(" ");
+
+      // oznamy nad rozvrhom: ručný oznam + automatické hlásenie zmien
+      const msgs = [];
+      if (d.oznam && d.oznam.trim()) msgs.push(esc(d.oznam));
+      t.forEach((x) => {
+        const p = x._pripravuje, z = x._zmena;
+        if (p) msgs.push(`<b>Pozor, zmena!</b> ${esc(x.skupina)} ${esc(obdobie(p))}: ${esc(cas(p.nove))}.${mapa(p.nove)}`);
+        else if (z) msgs.push(`${esc(x.skupina)} trénuje ${esc(obdobie(z))}: ${esc(cas(x))}.${mapa(x)}`);
+      });
       const oz = document.getElementById("oznam");
-      if (oz && d.oznam && d.oznam.trim()) { oz.textContent = d.oznam; oz.hidden = false; }
+      if (oz && msgs.length) { oz.innerHTML = msgs.map((m) => `<p>${m}</p>`).join(""); oz.hidden = false; }
     }).catch(() => { /* pri chybe ostane rozvrh zapísaný priamo v stránke */ });
   }
 
