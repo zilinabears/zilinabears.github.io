@@ -1,5 +1,4 @@
 {
-  "_navod": "Uprav len text v úvodzovkách a ulož (Commit changes). Oznam nechaj prázdny \"\", ak nie je čo hlásiť. Nový tréning = skopíruj celý blok { ... } aj s čiarkou. ZMENA TRÉNINGU: do tréningu pridaj blok \"zmena\" s dátumom \"od\" (RRRR-MM-DD) a len údajmi, ktoré sa menia. Web ju sám hlási 7 dní vopred a 7 dní po nej. Pre dočasnú zmenu pridaj aj \"do\". Po trvalej zmene môžeš nové údaje neskôr prepísať hore a blok zmena zmazať, nie je to však nutné.",
   "oznam": "",
   "treningy": [
     {
@@ -13,6 +12,7 @@
       "en_miesto": "Hliník nad Váhom pitch",
       "zmena": {
         "od": "2026-11-02",
+        "do": "2027-02-28",
         "cas": "18:15",
         "miesto": "Telocvičňa GymBy",
         "mapa": "https://maps.app.goo.gl/UrJNcmHoS493SBY5A",
@@ -37,7 +37,13 @@
       "mapa": "https://maps.app.goo.gl/PjMVvW672uVLpJYTA",
       "en_skupina": "Žilina teens and adults",
       "en_den": "Wednesdays",
-      "en_miesto": "Bôrik park"
+      "en_miesto": "Bôrik park",
+      "zmena": {
+        "od": "2026-10-28",
+        "miesto": "Ihrisko Vranie",
+        "mapa": "https://maps.app.goo.gl/re14RBJkdunNndHU6",
+        "en_miesto": "Vranie pitch"
+      }
     }
   ]
 }
