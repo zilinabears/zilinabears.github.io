@@ -27,8 +27,8 @@ Na Slovensko (vtedy do Česko-Slovenska) priniesol ragby v roku **1926** spisova
 |---|---|---|
 | Hráčov v tíme | 15 | 13 |
 | Položenie (*try*) | 5 bodov | 4 body |
-| Po zrážaní hráča | o loptu sa bojuje (*ruck*, *maul*) | lopta ostáva útočníkom, hra pokračuje rozohraním nohou (*play-the-ball*) |
-| Útok | bez obmedzenia | po 6 zrážaniach lopta prechádza na súpera |
+| Po zložení hráča | o loptu sa bojuje (*ruck*, *maul*) | lopta ostáva útočníkom, hra pokračuje rozohraním nohou (*play-the-ball*) |
+| Útok | bez obmedzenia | po 6 skládkach lopta prechádza na súpera |
 | Skrumáž a aut | dôležitá súčasť hry | skrumáž menšia a takmer bez súboja |
 | Svetová organizácia | World Rugby | International Rugby League |
 
@@ -40,7 +40,7 @@ Rugby union je vo svete rozšírenejšie a keď sa povie „ragby“, väčšino
 
 - **Sedmičky (rugby sevens)** – union so 7 hráčmi a polčasmi po 7 minút. Rýchle, veľa behania a od olympiády v Riu de Janeiro **2016 olympijský šport**.
 - **Desiatky (rugby tens)** a **Rugby X** (5 hráčov) – kratšie a rýchlejšie formy pre turnaje.
-- **Dotykové ragby (touch)** a **tag ragby** – bez zrážania. Hráča „zastavíš“ dotykom alebo stiahnutím pásky z opasku. Ideálne pre deti, začiatočníkov a zmiešané tímy.
+- **Dotykové ragby (touch)** a **tag ragby** – bez skladania. Hráča „zastavíš“ dotykom alebo stiahnutím pásky z opasku. Ideálne pre deti, začiatočníkov a zmiešané tímy.
 - **Mini ragby** – upravené pravidlá pre najmenšie deti s menším ihriskom a menej hráčmi.
 - **Plážové ragby** a **snežné ragby** – hrá sa na piesku alebo na snehu, menšie tímy a veľa zábavy.
 - **Ragby na vozíku** (*wheelchair rugby*) – paralympijský šport.
@@ -53,7 +53,7 @@ V Žiline a Bytči sa stretneš takmer so všetkými podobami ragby:
 
 - **Rugby union XV** – muži hrávajú zápasy pätnástok, napríklad derby s Bratislavou, ktoré v roku 2023 rozhodlo o jesennom majstrovi Slovenska.
 - **Sedmičky** – turnaje mužov a žien vrátane zápasov slovenského výberu.
-- **Detské ragby** – deti od 5 rokov začínajú dotykovou a tag formou a postupne sa učia bezpečné zrážanie. Hrávajú turnaje kategórií U8 až U14 na Slovensku, v Česku aj v Poľsku.
+- **Detské ragby** – deti od 5 rokov začínajú dotykovou a tag formou a postupne sa učia bezpečné skladanie. Hrávajú turnaje kategórií U8 až U14 na Slovensku, v Česku aj v Poľsku.
 - **Rugby league** – klub v roku 2011 vznikol ako ligový a ligové zápasy, napríklad s Bratislavou, hrávame aj dnes.
 - **Plážové a snežné ragby** – organizujeme Bears Beach Rugby aj turnaj v snežnom ragby.
 
