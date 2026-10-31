@@ -1,0 +1,37 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 520' width='800' height='520' role='img' aria-label='Konverzia sa kope z čiary, ktorá vedie cez miesto položenia rovnobežne s postrannou čiarou' font-family='Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif'>
+<title>Konverzia sa kope z čiary, ktorá vedie cez miesto položenia rovnobežne s postrannou čiarou</title>
+<defs>
+<marker id='aOK' viewBox='0 0 10 10' refX='8' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'><path d='M0,0 L10,5 L0,10 z' fill='#1e8a45'/></marker>
+<marker id='aBAD' viewBox='0 0 10 10' refX='8' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'><path d='M0,0 L10,5 L0,10 z' fill='#c62828'/></marker>
+<marker id='aTXT' viewBox='0 0 10 10' refX='8' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'><path d='M0,0 L10,5 L0,10 z' fill='#4a5a4a'/></marker>
+<marker id='aA' viewBox='0 0 10 10' refX='8' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'><path d='M0,0 L10,5 L0,10 z' fill='#1f5fa8'/></marker>
+<marker id='aB' viewBox='0 0 10 10' refX='8' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'><path d='M0,0 L10,5 L0,10 z' fill='#e07b39'/></marker>
+</defs>
+<rect width='800' height='520' fill='#ffffff'/>
+<text x='30' y='40' font-size='22' fill='#1d2a1d' text-anchor='start' font-weight='bold'>Kde sa kope konverzia</text>
+<rect x='110' y='60' width='580' height='420' rx='10' fill='#cfe6c4'/>
+<rect x='110' y='60' width='580' height='70' rx='10' fill='#b9d9ab'/>
+<text x='124' y='82' font-size='14' fill='#4a5a4a' text-anchor='start' font-weight='normal'>bránkové územie</text>
+<line x1='110' y1='130' x2='690' y2='130' stroke='#ffffff' stroke-width='4'/>
+<text x='698' y='135' font-size='13' fill='#4a5a4a' text-anchor='start' font-weight='normal'>bránková čiara</text>
+<text x='102' y='470' font-size='13' fill='#4a5a4a' text-anchor='end' font-weight='normal'>postranná</text>
+<text x='102' y='486' font-size='13' fill='#4a5a4a' text-anchor='end' font-weight='normal'>čiara</text>
+<line x1='110' y1='60' x2='110' y2='480' stroke='#ffffff' stroke-width='4'/><line x1='690' y1='60' x2='690' y2='480' stroke='#ffffff' stroke-width='4'/>
+<line x1='365.0' y1='130' x2='435.0' y2='130' stroke='#5a4a2a' stroke-width='5'/><circle cx='365.0' cy='130' r='6' fill='#5a4a2a'/><circle cx='435.0' cy='130' r='6' fill='#5a4a2a'/>
+<text x='352.0' y='152' font-size='13' fill='#5a4a2a' text-anchor='end' font-weight='normal'>bránka</text>
+<ellipse cx='630' cy='100' rx='10.799999999999999' ry='7.199999999999999' fill='#f4d03f' stroke='#7a5a10' stroke-width='1.8' transform='rotate(0 630 100)'/>
+<text x='630' y='82' font-size='13' fill='#1d2a1d' text-anchor='middle' font-weight='normal'>položenie</text>
+<line x1='630' y1='112' x2='630' y2='470' stroke='#c62828' stroke-width='3' stroke-dasharray='8 6'/>
+<ellipse cx='630' cy='280' rx='9.9' ry='6.6000000000000005' fill='#f4d03f' stroke='#7a5a10' stroke-width='1.8' transform='rotate(90 630 280)'/>
+<line x1='622' y1='270' x2='420.0' y2='138' stroke='#4a5a4a' stroke-width='2' stroke-dasharray='3 5' marker-end='url(#aTXT)'/>
+<text x='618' y='330' font-size='15' fill='#c62828' text-anchor='end' font-weight='bold'>ťažký kop</text>
+<text x='618' y='350' font-size='13' fill='#4a5a4a' text-anchor='end' font-weight='normal'>z ostrého uhla</text>
+<ellipse cx='400.0' cy='100' rx='10.799999999999999' ry='7.199999999999999' fill='#f4d03f' stroke='#7a5a10' stroke-width='1.8' transform='rotate(0 400.0 100)'/>
+<text x='400.0' y='82' font-size='13' fill='#1d2a1d' text-anchor='middle' font-weight='normal'>položenie</text>
+<line x1='400.0' y1='112' x2='400.0' y2='470' stroke='#1e8a45' stroke-width='3' stroke-dasharray='8 6'/>
+<ellipse cx='400.0' cy='240' rx='9.9' ry='6.6000000000000005' fill='#f4d03f' stroke='#7a5a10' stroke-width='1.8' transform='rotate(90 400.0 240)'/>
+<line x1='400.0' y1='228' x2='400.0' y2='142' stroke='#4a5a4a' stroke-width='2' stroke-dasharray='3 5' marker-end='url(#aTXT)'/>
+<text x='386.0' y='290' font-size='15' fill='#1e8a45' text-anchor='end' font-weight='bold'>ľahký kop</text>
+<text x='386.0' y='310' font-size='13' fill='#4a5a4a' text-anchor='end' font-weight='normal'>spredu</text>
+<text x='400.0' y='508' font-size='14' fill='#4a5a4a' text-anchor='middle' font-weight='normal'>Kopáč si vyberie, ako ďaleko na čiare loptu postaví – ale vždy v línii s miestom položenia.</text>
+</svg>

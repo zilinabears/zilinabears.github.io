@@ -1,0 +1,58 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 400' width='900' height='400' role='img' aria-label='Čo sa deje po zložení hráča v troch krokoch' font-family='Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif'>
+<title>Čo sa deje po zložení hráča v troch krokoch</title>
+<defs>
+<marker id='aOK' viewBox='0 0 10 10' refX='8' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'><path d='M0,0 L10,5 L0,10 z' fill='#1e8a45'/></marker>
+<marker id='aBAD' viewBox='0 0 10 10' refX='8' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'><path d='M0,0 L10,5 L0,10 z' fill='#c62828'/></marker>
+<marker id='aTXT' viewBox='0 0 10 10' refX='8' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'><path d='M0,0 L10,5 L0,10 z' fill='#4a5a4a'/></marker>
+<marker id='aA' viewBox='0 0 10 10' refX='8' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'><path d='M0,0 L10,5 L0,10 z' fill='#1f5fa8'/></marker>
+<marker id='aB' viewBox='0 0 10 10' refX='8' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'><path d='M0,0 L10,5 L0,10 z' fill='#e07b39'/></marker>
+</defs>
+<rect width='900' height='400' fill='#ffffff'/>
+<text x='30' y='40' font-size='22' fill='#1d2a1d' text-anchor='start' font-weight='bold'>Po skládke: tri povinnosti</text>
+<rect x='30' y='60' width='270' height='270' rx='10' fill='#cfe6c4'/>
+<circle cx='54' cy='86' r='15' fill='#1d2a1d'/><text x='54' y='92' font-size='16' fill='#fff' text-anchor='middle' font-weight='bold'>1</text>
+<text x='76' y='92' font-size='16' fill='#1d2a1d' text-anchor='start' font-weight='bold'>Zložený hráč</text>
+<text x='165.0' y='320' font-size='14' fill='#4a5a4a' text-anchor='middle' font-weight='normal'>pustí loptu k svojim</text>
+<rect x='315' y='60' width='270' height='270' rx='10' fill='#cfe6c4'/>
+<circle cx='339' cy='86' r='15' fill='#1d2a1d'/><text x='339' y='92' font-size='16' fill='#fff' text-anchor='middle' font-weight='bold'>2</text>
+<text x='361' y='92' font-size='16' fill='#1d2a1d' text-anchor='start' font-weight='bold'>Ten, kto skladal</text>
+<text x='450.0' y='320' font-size='14' fill='#4a5a4a' text-anchor='middle' font-weight='normal'>pustí a odkotúľa sa</text>
+<rect x='600' y='60' width='270' height='270' rx='10' fill='#cfe6c4'/>
+<circle cx='624' cy='86' r='15' fill='#1d2a1d'/><text x='624' y='92' font-size='16' fill='#fff' text-anchor='middle' font-weight='bold'>3</text>
+<text x='646' y='92' font-size='16' fill='#1d2a1d' text-anchor='start' font-weight='bold'>Ostatní</text>
+<text x='735.0' y='320' font-size='14' fill='#4a5a4a' text-anchor='middle' font-weight='normal'>prichádzajú na nohách zo svojej strany</text>
+<ellipse cx='180' cy='200' rx='26' ry='11' fill='#1f5fa8' stroke='#ffffff' stroke-width='2.5' transform='rotate(0 180 200)'/>
+<ellipse cx='220' cy='230' rx='26' ry='11' fill='#e07b39' stroke='#ffffff' stroke-width='2.5' transform='rotate(10 220 230)'/>
+<ellipse cx='125' cy='200' rx='9' ry='6' fill='#f4d03f' stroke='#7a5a10' stroke-width='1.8' transform='rotate(0 125 200)'/>
+<line x1='152' y1='200' x2='132' y2='200' stroke='#1e8a45' stroke-width='3' marker-end='url(#aOK)'/>
+<path d='M112,170 L118,177 L129,163' fill='none' stroke='#1e8a45' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/>
+<text x='165.0' y='145' font-size='13' fill='#c62828' text-anchor='middle' font-weight='normal'>nesmie ju držať ani hrabať</text>
+<ellipse cx='440' cy='200' rx='26' ry='11' fill='#1f5fa8' stroke='#ffffff' stroke-width='2.5' transform='rotate(0 440 200)'/>
+<ellipse cx='385' cy='200' rx='9' ry='6' fill='#f4d03f' stroke='#7a5a10' stroke-width='1.8' transform='rotate(0 385 200)'/>
+<ellipse cx='480' cy='238' rx='26' ry='11' fill='#e07b39' stroke='#ffffff' stroke-width='2.5' transform='rotate(10 480 238)'/>
+<path d='M490,260 Q535,250 540,280' fill='none' stroke='#e07b39' stroke-width='3' marker-end='url(#aB)'/>
+<circle cx='550' cy='160' r='14' fill='#e07b39' fill-opacity='1' stroke='#ffffff' stroke-width='2.5'/>
+<line x1='510' y1='220' x2='545' y2='180' stroke='#1e8a45' stroke-width='2.5' stroke-dasharray='6 5' marker-end='url(#aOK)'/>
+<text x='500' y='110' font-size='12' fill='#4a5a4a' text-anchor='middle' font-weight='normal'>vstane a až potom</text>
+<text x='500' y='124' font-size='12' fill='#4a5a4a' text-anchor='middle' font-weight='normal'>hrá o loptu</text>
+<ellipse cx='735' cy='200' rx='9' ry='6' fill='#f4d03f' stroke='#7a5a10' stroke-width='1.8' transform='rotate(0 735 200)'/>
+<circle cx='665' cy='170' r='14' fill='#1f5fa8' fill-opacity='1' stroke='#ffffff' stroke-width='2.5'/>
+<circle cx='655' cy='240' r='14' fill='#1f5fa8' fill-opacity='1' stroke='#ffffff' stroke-width='2.5'/>
+<circle cx='805' cy='170' r='14' fill='#e07b39' fill-opacity='1' stroke='#ffffff' stroke-width='2.5'/>
+<circle cx='815' cy='240' r='14' fill='#e07b39' fill-opacity='1' stroke='#ffffff' stroke-width='2.5'/>
+<line x1='679' y1='176' x2='715' y2='194' stroke='#1e8a45' stroke-width='3.5' marker-end='url(#aOK)'/>
+<line x1='669' y1='232' x2='713' y2='210' stroke='#1e8a45' stroke-width='3.5' marker-end='url(#aOK)'/>
+<line x1='791' y1='176' x2='755' y2='194' stroke='#1e8a45' stroke-width='3.5' marker-end='url(#aOK)'/>
+<circle cx='735' cy='295' r='14' fill='#e07b39' fill-opacity='0.6' stroke='#ffffff' stroke-width='2.5'/>
+<line x1='735' y1='279' x2='735' y2='222' stroke='#c62828' stroke-width='3.5' stroke-dasharray='7 5' marker-end='url(#aBAD)'/>
+<path d='M745,247 L761,263 M761,247 L745,263' stroke='#c62828' stroke-width='4' stroke-linecap='round'/>
+<text x='763' y='300' font-size='13' fill='#c62828' text-anchor='start' font-weight='bold'>zboku nie</text>
+<circle cx='60' cy='375' r='14' fill='#1f5fa8' fill-opacity='1' stroke='#ffffff' stroke-width='2.5'/>
+<text x='82' y='380' font-size='14' fill='#1d2a1d' text-anchor='start' font-weight='normal'>tím s loptou</text>
+<circle cx='210' cy='375' r='14' fill='#e07b39' fill-opacity='1' stroke='#ffffff' stroke-width='2.5'/>
+<text x='232' y='380' font-size='14' fill='#1d2a1d' text-anchor='start' font-weight='normal'>súper</text>
+<ellipse cx='310' cy='375' rx='9' ry='6' fill='#f4d03f' stroke='#7a5a10' stroke-width='1.8' transform='rotate(-20 310 375)'/>
+<text x='326' y='380' font-size='14' fill='#1d2a1d' text-anchor='start' font-weight='normal'>lopta</text>
+<line x1='560' y1='370' x2='650' y2='370' stroke='#1f5fa8' stroke-width='3' marker-end='url(#aA)'/>
+<text x='660' y='375' font-size='14' fill='#1f5fa8' text-anchor='start' font-weight='normal'>smer útoku</text>
+</svg>

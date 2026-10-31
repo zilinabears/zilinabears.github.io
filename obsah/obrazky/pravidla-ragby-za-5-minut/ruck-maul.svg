@@ -1,0 +1,48 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 420' width='800' height='420' role='img' aria-label='Ruck a maul: lopta na zemi verzus lopta v rukách' font-family='Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif'>
+<title>Ruck a maul: lopta na zemi verzus lopta v rukách</title>
+<defs>
+<marker id='aOK' viewBox='0 0 10 10' refX='8' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'><path d='M0,0 L10,5 L0,10 z' fill='#1e8a45'/></marker>
+<marker id='aBAD' viewBox='0 0 10 10' refX='8' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'><path d='M0,0 L10,5 L0,10 z' fill='#c62828'/></marker>
+<marker id='aTXT' viewBox='0 0 10 10' refX='8' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'><path d='M0,0 L10,5 L0,10 z' fill='#4a5a4a'/></marker>
+<marker id='aA' viewBox='0 0 10 10' refX='8' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'><path d='M0,0 L10,5 L0,10 z' fill='#1f5fa8'/></marker>
+<marker id='aB' viewBox='0 0 10 10' refX='8' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'><path d='M0,0 L10,5 L0,10 z' fill='#e07b39'/></marker>
+</defs>
+<rect width='800' height='420' fill='#ffffff'/>
+<text x='30' y='40' font-size='22' fill='#1d2a1d' text-anchor='start' font-weight='bold'>Ruck a maul</text>
+<rect x='30' y='60' width='360' height='290' rx='10' fill='#cfe6c4'/>
+<text x='210' y='90' font-size='18' fill='#1d2a1d' text-anchor='middle' font-weight='bold'>Ruck</text>
+<text x='210' y='110' font-size='14' fill='#4a5a4a' text-anchor='middle' font-weight='normal'>lopta leží na zemi</text>
+<ellipse cx='210' cy='222' rx='9.9' ry='6.6000000000000005' fill='#f4d03f' stroke='#7a5a10' stroke-width='1.8' transform='rotate(0 210 222)'/>
+<circle cx='168' cy='186' r='14' fill='#1f5fa8' fill-opacity='1' stroke='#ffffff' stroke-width='2.5'/>
+<circle cx='252' cy='186' r='14' fill='#e07b39' fill-opacity='1' stroke='#ffffff' stroke-width='2.5'/>
+<circle cx='168' cy='220' r='14' fill='#1f5fa8' fill-opacity='1' stroke='#ffffff' stroke-width='2.5'/>
+<circle cx='252' cy='220' r='14' fill='#e07b39' fill-opacity='1' stroke='#ffffff' stroke-width='2.5'/>
+<circle cx='168' cy='254' r='14' fill='#1f5fa8' fill-opacity='1' stroke='#ffffff' stroke-width='2.5'/>
+<circle cx='252' cy='254' r='14' fill='#e07b39' fill-opacity='1' stroke='#ffffff' stroke-width='2.5'/>
+<circle cx='132' cy='203' r='14' fill='#1f5fa8' fill-opacity='1' stroke='#ffffff' stroke-width='2.5'/>
+<circle cx='132' cy='237' r='14' fill='#1f5fa8' fill-opacity='1' stroke='#ffffff' stroke-width='2.5'/>
+<line x1='98' y1='220' x2='114' y2='220' stroke='#1f5fa8' stroke-width='3' marker-end='url(#aA)'/>
+<line x1='288' y1='220' x2='272' y2='220' stroke='#e07b39' stroke-width='3' marker-end='url(#aB)'/>
+<text x='210' y='320' font-size='14' fill='#1d2a1d' text-anchor='middle' font-weight='bold'>hrá sa len nohami, rukami nie</text>
+<rect x='410' y='60' width='360' height='290' rx='10' fill='#cfe6c4'/>
+<text x='590' y='90' font-size='18' fill='#1d2a1d' text-anchor='middle' font-weight='bold'>Maul</text>
+<text x='590' y='110' font-size='14' fill='#4a5a4a' text-anchor='middle' font-weight='normal'>lopta je v rukách hráča, ktorý stojí</text>
+<circle cx='590' cy='220' r='14' fill='#1f5fa8' fill-opacity='1' stroke='#ffffff' stroke-width='2.5'/>
+<ellipse cx='592' cy='219' rx='9.0' ry='6.0' fill='#f4d03f' stroke='#7a5a10' stroke-width='1.8' transform='rotate(-20 592 219)'/>
+<circle cx='624' cy='206' r='14' fill='#e07b39' fill-opacity='1' stroke='#ffffff' stroke-width='2.5'/>
+<circle cx='624' cy='238' r='14' fill='#e07b39' fill-opacity='1' stroke='#ffffff' stroke-width='2.5'/>
+<circle cx='556' cy='204' r='14' fill='#1f5fa8' fill-opacity='1' stroke='#ffffff' stroke-width='2.5'/>
+<circle cx='556' cy='238' r='14' fill='#1f5fa8' fill-opacity='1' stroke='#ffffff' stroke-width='2.5'/>
+<circle cx='656' cy='220' r='14' fill='#e07b39' fill-opacity='1' stroke='#ffffff' stroke-width='2.5'/>
+<line x1='510' y1='220' x2='536' y2='220' stroke='#1f5fa8' stroke-width='3' marker-end='url(#aA)'/>
+<text x='590' y='300' font-size='14' fill='#1d2a1d' text-anchor='middle' font-weight='bold'>hráči sú na nohách a tlačia sa</text>
+<text x='590' y='320' font-size='14' fill='#1d2a1d' text-anchor='middle' font-weight='bold'>– celý zhluk sa hýbe po ihrisku</text>
+<circle cx='60' cy='395' r='14' fill='#1f5fa8' fill-opacity='1' stroke='#ffffff' stroke-width='2.5'/>
+<text x='82' y='400' font-size='14' fill='#1d2a1d' text-anchor='start' font-weight='normal'>tím s loptou</text>
+<circle cx='210' cy='395' r='14' fill='#e07b39' fill-opacity='1' stroke='#ffffff' stroke-width='2.5'/>
+<text x='232' y='400' font-size='14' fill='#1d2a1d' text-anchor='start' font-weight='normal'>súper</text>
+<ellipse cx='310' cy='395' rx='9' ry='6' fill='#f4d03f' stroke='#7a5a10' stroke-width='1.8' transform='rotate(-20 310 395)'/>
+<text x='326' y='400' font-size='14' fill='#1d2a1d' text-anchor='start' font-weight='normal'>lopta</text>
+<line x1='560' y1='390' x2='650' y2='390' stroke='#1f5fa8' stroke-width='3' marker-end='url(#aA)'/>
+<text x='660' y='395' font-size='14' fill='#1f5fa8' text-anchor='start' font-weight='normal'>smer útoku</text>
+</svg>

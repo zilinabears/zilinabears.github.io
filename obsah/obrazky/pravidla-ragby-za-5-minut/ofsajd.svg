@@ -1,0 +1,51 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 440' width='800' height='440' role='img' aria-label='Ofsajd v otvorenej hre a pri rucku' font-family='Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif'>
+<title>Ofsajd v otvorenej hre a pri rucku</title>
+<defs>
+<marker id='aOK' viewBox='0 0 10 10' refX='8' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'><path d='M0,0 L10,5 L0,10 z' fill='#1e8a45'/></marker>
+<marker id='aBAD' viewBox='0 0 10 10' refX='8' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'><path d='M0,0 L10,5 L0,10 z' fill='#c62828'/></marker>
+<marker id='aTXT' viewBox='0 0 10 10' refX='8' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'><path d='M0,0 L10,5 L0,10 z' fill='#4a5a4a'/></marker>
+<marker id='aA' viewBox='0 0 10 10' refX='8' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'><path d='M0,0 L10,5 L0,10 z' fill='#1f5fa8'/></marker>
+<marker id='aB' viewBox='0 0 10 10' refX='8' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'><path d='M0,0 L10,5 L0,10 z' fill='#e07b39'/></marker>
+</defs>
+<rect width='800' height='440' fill='#ffffff'/>
+<text x='30' y='40' font-size='22' fill='#1d2a1d' text-anchor='start' font-weight='bold'>Ofsajd: hráš len zo správnej strany</text>
+<rect x='30' y='60' width='360' height='320' rx='10' fill='#cfe6c4'/>
+<text x='210' y='90' font-size='17' fill='#1d2a1d' text-anchor='middle' font-weight='bold'>V otvorenej hre</text>
+<line x1='190' y1='105' x2='190' y2='370' stroke='#ffffff' stroke-width='3' stroke-dasharray='8 6'/>
+<circle cx='190' cy='230' r='14' fill='#1f5fa8' fill-opacity='1' stroke='#ffffff' stroke-width='2.5'/>
+<ellipse cx='204' cy='216' rx='9' ry='6' fill='#f4d03f' stroke='#7a5a10' stroke-width='1.8' transform='rotate(-20 204 216)'/>
+<circle cx='110' cy='170' r='14' fill='#1f5fa8' fill-opacity='1' stroke='#ffffff' stroke-width='2.5'/><circle cx='110' cy='170' r='20' fill='none' stroke='#1e8a45' stroke-width='3' stroke-dasharray='5 4'/>
+<circle cx='120' cy='300' r='14' fill='#1f5fa8' fill-opacity='1' stroke='#ffffff' stroke-width='2.5'/><circle cx='120' cy='300' r='20' fill='none' stroke='#1e8a45' stroke-width='3' stroke-dasharray='5 4'/>
+<circle cx='300' cy='180' r='14' fill='#1f5fa8' fill-opacity='0.55' stroke='#ffffff' stroke-width='2.5'/><circle cx='300' cy='180' r='20' fill='none' stroke='#c62828' stroke-width='3' stroke-dasharray='5 4'/>
+<text x='300' y='152' font-size='14' fill='#c62828' text-anchor='middle' font-weight='bold'>v ofsajde</text>
+<text x='300' y='215' font-size='12' fill='#4a5a4a' text-anchor='middle' font-weight='normal'>stojí pred</text>
+<text x='300' y='229' font-size='12' fill='#4a5a4a' text-anchor='middle' font-weight='normal'>nosičom lopty</text>
+<text x='105' y='345' font-size='14' fill='#1e8a45' text-anchor='middle' font-weight='bold'>v hre</text>
+<line x1='50' y1='365' x2='140' y2='365' stroke='#1f5fa8' stroke-width='3' marker-end='url(#aA)'/>
+<text x='150' y='370' font-size='14' fill='#1f5fa8' text-anchor='start' font-weight='normal'>smer útoku</text>
+<rect x='410' y='60' width='360' height='320' rx='10' fill='#cfe6c4'/>
+<text x='590' y='90' font-size='17' fill='#1d2a1d' text-anchor='middle' font-weight='bold'>Pri rucku</text>
+<ellipse cx='590' cy='230' rx='9' ry='6' fill='#f4d03f' stroke='#7a5a10' stroke-width='1.8' transform='rotate(0 590 230)'/>
+<circle cx='568' cy='206' r='14' fill='#1f5fa8' fill-opacity='1' stroke='#ffffff' stroke-width='2.5'/>
+<circle cx='568' cy='254' r='14' fill='#1f5fa8' fill-opacity='1' stroke='#ffffff' stroke-width='2.5'/>
+<circle cx='612' cy='206' r='14' fill='#e07b39' fill-opacity='1' stroke='#ffffff' stroke-width='2.5'/>
+<circle cx='612' cy='254' r='14' fill='#e07b39' fill-opacity='1' stroke='#ffffff' stroke-width='2.5'/>
+<circle cx='540' cy='230' r='14' fill='#1f5fa8' fill-opacity='1' stroke='#ffffff' stroke-width='2.5'/>
+<line x1='526' y1='105' x2='526' y2='370' stroke='#1f5fa8' stroke-width='3' stroke-dasharray='8 6'/>
+<line x1='626' y1='105' x2='626' y2='370' stroke='#e07b39' stroke-width='3' stroke-dasharray='8 6'/>
+<text x='522' y='122' font-size='12' fill='#1f5fa8' text-anchor='end' font-weight='normal'>čiara</text>
+<text x='522' y='136' font-size='12' fill='#1f5fa8' text-anchor='end' font-weight='normal'>tímu s loptou</text>
+<text x='630' y='122' font-size='12' fill='#e07b39' text-anchor='start' font-weight='normal'>čiara</text>
+<text x='630' y='136' font-size='12' fill='#e07b39' text-anchor='start' font-weight='normal'>súpera</text>
+<circle cx='470' cy='170' r='14' fill='#1f5fa8' fill-opacity='1' stroke='#ffffff' stroke-width='2.5'/><circle cx='470' cy='170' r='20' fill='none' stroke='#1e8a45' stroke-width='3' stroke-dasharray='5 4'/>
+<circle cx='700' cy='300' r='14' fill='#e07b39' fill-opacity='1' stroke='#ffffff' stroke-width='2.5'/><circle cx='700' cy='300' r='20' fill='none' stroke='#1e8a45' stroke-width='3' stroke-dasharray='5 4'/>
+<circle cx='594' cy='330' r='14' fill='#e07b39' fill-opacity='0.55' stroke='#ffffff' stroke-width='2.5'/><circle cx='594' cy='330' r='20' fill='none' stroke='#c62828' stroke-width='3' stroke-dasharray='5 4'/>
+<text x='594' y='362' font-size='14' fill='#c62828' text-anchor='middle' font-weight='bold'>v ofsajde</text>
+<text x='590' y='400' font-size='14' fill='#4a5a4a' text-anchor='middle' font-weight='normal'>Čiara vedie cez poslednú nohu posledného hráča v rucku.</text>
+<circle cx='60' cy='425' r='14' fill='#1f5fa8' fill-opacity='1' stroke='#ffffff' stroke-width='2.5'/>
+<text x='82' y='430' font-size='14' fill='#1d2a1d' text-anchor='start' font-weight='normal'>tím s loptou</text>
+<circle cx='210' cy='425' r='14' fill='#e07b39' fill-opacity='1' stroke='#ffffff' stroke-width='2.5'/>
+<text x='232' y='430' font-size='14' fill='#1d2a1d' text-anchor='start' font-weight='normal'>súper</text>
+<ellipse cx='310' cy='425' rx='9' ry='6' fill='#f4d03f' stroke='#7a5a10' stroke-width='1.8' transform='rotate(-20 310 425)'/>
+<text x='326' y='430' font-size='14' fill='#1d2a1d' text-anchor='start' font-weight='normal'>lopta</text>
+</svg>
