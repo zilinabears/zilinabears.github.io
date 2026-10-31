@@ -2,6 +2,14 @@
 (function () {
   "use strict";
 
+  // ---------- hlavička: po odscrollovaní zmenšiť logo
+  const top = document.querySelector("header.top");
+  if (top) {
+    const mini = () => top.classList.toggle("mini", window.scrollY > 40);
+    window.addEventListener("scroll", mini, { passive: true });
+    mini();
+  }
+
   // ---------- mobilné menu
   const burger = document.querySelector(".burger");
   const menu = document.getElementById("menu");
