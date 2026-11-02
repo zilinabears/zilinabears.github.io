@@ -33,7 +33,7 @@ Disciplína je súčasťou hry **na ihrisku aj mimo neho**. Znamená dodržiava�
 
 ## Rešpekt
 
-![rozhodca a kapitán](obsah/obrazky/hodnoty-ragby/rozhodca.jpg)
+![rozhodca a kapitán](obsah/obrazky/hodnoty-ragby/rozhodca.png)
 
 Rešpekt k **spoluhráčom, súperom, rozhodcom a všetkým, ktorí sa na hre podieľajú**, je prvoradý.
 
