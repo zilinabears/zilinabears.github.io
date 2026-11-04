@@ -26,7 +26,7 @@
 <a class="n" href="index.html#klub">O klube</a>
 <a class="n" href="index.html#kontakt">Kontakt</a>
 <a class="n" href="index.html#en" lang="en" style="color:#B8D724">EN</a>
-<a class="cta" href="https://wa.me/421911913244">Pridaj sa</a>
+<a class="cta" href="napiste-nam.html">Pridaj sa</a>
 </nav>
 </div>
 </header>
@@ -37,14 +37,14 @@
 <div class="kicker">Ragbyový klub Žilina · Bytča · 15 rokov</div>
 <h1 class="disp">Ragby pre každého.<br>Od 5 rokov.</h1>
 <p>Deti, juniori, ženy aj muži. Skúsenosti netreba a je jedno, či si fit – stačí chuť na sebe makať. Príď si to vyskúšať.</p>
-<div id="oznam" class="oznam" role="status" hidden></div>
+<!--@oznam--><div id="oznam" class="oznam" role="status"><p>Bytča od 2. 11. do 28. 2. trénuje v pondelok o 18:15 · Telocvičňa GymBy. <a href="https://maps.app.goo.gl/UrJNcmHoS493SBY5A">Mapa →</a></p></div><!--/@oznam-->
 <div class="hero-sched" aria-label="Tréningy">
 <div class="hs-head"><span>Tréningy</span><a href="#treningy">Detail →</a></div>
-<ul id="hero-sched"><li><span class="hs-g">Bytča</span><span class="hs-t">Pondelok <b>17:00</b></span><span class="hs-p">Ihrisko Hliník nad Váhom</span></li><li><span class="hs-g">Žilina · Deti</span><span class="hs-t">Streda <b>16:00</b></span><span class="hs-p">Bôrický park</span></li><li><span class="hs-g">Žilina · Dorast a dospelí</span><span class="hs-t">Streda <b>17:30</b></span><span class="hs-p">Bôrický park</span></li></ul>
+<ul id="hero-sched"><!--@rozvrh-hero--><li class="zmena"><span class="hs-g">Bytča</span><span class="hs-t">Pondelok <b>18:15</b></span><span class="hs-p">Telocvičňa GymBy</span><span class="hs-z">Zmena od 2. 11. do 28. 2.</span></li><li><span class="hs-g">Žilina · Deti</span><span class="hs-t">Streda <b>16:00</b></span><span class="hs-p">Bôrický park</span></li><li><span class="hs-g">Žilina · Dorast a dospelí</span><span class="hs-t">Streda <b>18:00</b></span><span class="hs-p">Ihrisko Vranie</span></li><!--/@rozvrh-hero--></ul>
 </div>
 <div style="display:flex;flex-wrap:wrap;gap:14px;padding-top:8px">
 <a class="btn btn-y" href="#treningy">Kedy trénujeme</a>
-<a class="btn btn-o" href="https://wa.me/421911913244">Napíš na WhatsApp</a>
+<a class="btn btn-o" href="napiste-nam.html">Napíš na WhatsApp</a>
 </div>
 </div>
 <!-- FOTKA: nahraj fotku do assets/img/hero.jpg (na šírku, aspoň 1600 px) -->
@@ -57,6 +57,7 @@
 <div><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#0E2A1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><strong>Príď si to skúsiť</strong><span>Pozri sa na tréning, zahraj si a rozhodni sa potom.</span></div></div>
 <div><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#0E2A1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg><div><strong>Bez skúseností</strong><span>Začiatočníci sú vítaní, individuálny prístup.</span></div></div>
 <div><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#0E2A1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M8.5 14 7 22l5-3 5 3-1.5-8"/></svg><div><strong>Turnaje doma aj vonku</strong><span>Slovensko, Česko, Poľsko aj Maďarsko.</span></div></div>
+<div class="wide"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#0E2A1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><div><strong>Bezpečne od základov</strong><span>Deti sa najprv učia padať. Skladanie učíme krok za krokom, od kolien až po beh. <a href="clanok.html?r=bezpecnost-v-ragby">Ako to robíme →</a></span></div></div>
 </div>
 </section>
 
@@ -70,13 +71,13 @@
 <section id="treningy" class="wrap sec">
 <div class="sec-head"><div><div class="kicker">Rozvrh</div><h2 class="disp h2">Kedy a kde trénujeme</h2></div></div>
 <div class="grid train" id="train-grid">
-<article class="card"><div class="kicker" style="letter-spacing:1px">Bytča</div><h3>Pondelok 17:00</h3><div class="row"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1E5B3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><span>Ihrisko Hliník nad Váhom</span></div></article>
-<article class="card"><div class="kicker" style="letter-spacing:1px">Žilina · Deti</div><h3>Streda 16:00</h3><div class="row"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1E5B3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><span>Bôrický park</span></div></article>
-<article class="card"><div class="kicker" style="letter-spacing:1px">Žilina · Dorast a dospelí</div><h3>Streda 17:30</h3><div class="row"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1E5B3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><span>Bôrický park</span></div><a class="more" href="https://maps.app.goo.gl/PjMVvW672uVLpJYTA">Otvoriť v mape →</a></article>
+<!--@rozvrh-karty--><article class="card"><div class="kicker" style="letter-spacing:1px">Bytča</div><h3>Pondelok 18:15</h3><div class="row"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1E5B3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><span>Telocvičňa GymBy</span></div><div class="zmena-box"><strong>Nové od 2. 11. do 28. 2.</strong>Pozor na zmenený čas alebo miesto.</div><a class="more" href="https://maps.app.goo.gl/UrJNcmHoS493SBY5A">Otvoriť v mape →</a></article>
+<article class="card"><div class="kicker" style="letter-spacing:1px">Žilina · Deti</div><h3>Streda 16:00</h3><div class="row"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1E5B3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><span>Bôrický park</span></div><a class="more" href="https://maps.app.goo.gl/PjMVvW672uVLpJYTA">Otvoriť v mape →</a></article>
+<article class="card"><div class="kicker" style="letter-spacing:1px">Žilina · Dorast a dospelí</div><h3>Streda 18:00</h3><div class="row"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1E5B3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><span>Ihrisko Vranie</span></div><a class="more" href="https://maps.app.goo.gl/re14RBJkdunNndHU6">Otvoriť v mape →</a></article><!--/@rozvrh-karty-->
 </div>
 <div class="callout" id="uniza">
 <div><strong>Študuješ na UNIZA?</strong> V letnom aj zimnom semestri otvárame predmet telesná výchova – rugby. Trénuješ s celým tímom, takže nebudeš sám ani sama.</div>
-<a class="more" style="white-space:nowrap" href="https://wa.me/421911913244">Spýtaj sa nás →</a>
+<a class="more" style="white-space:nowrap" href="napiste-nam.html?z=uniza">Spýtaj sa nás →</a>
 </div>
 </section>
 
@@ -84,7 +85,7 @@
 <div class="wrap sec">
 <div class="sec-head"><div><div class="kicker">Prvý tréning</div><h2 class="disp h2">Začni v troch krokoch</h2></div></div>
 <ol class="grid steps">
-<li><span class="num">01</span><h3>Ozvi sa nám</h3><p>Napíš na WhatsApp +421 911 913 244 a dohodneme sa, na ktorý tréning prídeš.</p></li>
+<li><span class="num">01</span><h3>Ozvi sa nám</h3><p>Napíš na <a href="napiste-nam.html">WhatsApp <span data-k="cislo">+421 911 913 244</span></a> a dohodneme sa, na ktorý tréning prídeš.</p></li>
 <li><span class="num">02</span><h3>Zbaľ si veci</h3><p>Bežecké topánky alebo kopačky, kraťasy, tričko a fľašu s vodou. Pitný režim si nosí každý sám, cisternu nevozíme.</p></li>
 <li><span class="num">03</span><h3>Príď a hraj</h3><p>Tréner ťa prevedie základmi, tím ťa podrží.</p></li>
 </ol>
@@ -94,7 +95,7 @@
 <section id="kategorie" class="wrap sec">
 <div class="sec-head"><div><div class="kicker">Nábor</div><h2 class="disp h2">Pre koho je ragby</h2></div></div>
 <div class="grid cats">
-<div class="cat"><b>Deti</b><div>Od 5 rokov. Hra, pohyb a partia – kategórie U8 až U14.</div></div>
+<div class="cat"><b>Deti</b><div>Od 5 rokov. Hra, pohyb a partia – kategórie U8 až U14. Dá sa hrať aj popri inom športe.</div></div>
 <div class="cat"><b>Juniori</b><div>Od 14 rokov. Turnaje na Slovensku aj v českej lige.</div></div>
 <div class="cat"><b>Ženy</b><div>Tréningy, turnaje a cesta do reprezentácie.</div></div>
 <div class="cat"><b>Muži</b><div>Zápasy XV aj 7s, veteránske turnaje pre oteckov.</div></div>
@@ -126,11 +127,11 @@
 <div class="kicker">Kontakt</div>
 <h2 class="disp h2">Ozvi sa,<br>radi ťa privítame</h2>
 <p style="margin:0;color:var(--pale)">Hovoríme po slovensky, anglicky, nemecky aj francúzsky.</p>
-<a class="btn btn-y" style="align-self:flex-start" href="https://wa.me/421911913244">Napíš na WhatsApp</a>
+<a class="btn btn-y" style="align-self:flex-start" href="napiste-nam.html">Napíš na WhatsApp</a>
 </div>
 <div style="flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:4px;font-size:19px">
-<a class="clink" href="tel:+421911913244"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B8D724" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg><span>+421 911 913 244 <span class="sub">· SK / EN / WhatsApp</span></span></a>
-<a class="clink" href="tel:+421904592402"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B8D724" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg><span>+421 904 592 402 <span class="sub">· SK</span></span></a>
+<a class="clink" href="tel:+421911913244" data-k="tel"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B8D724" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg><span><span data-k="cislo">+421 911 913 244</span> <span class="sub">· SK / EN / WhatsApp</span></span></a>
+<a class="clink" href="tel:+421904592402" data-k="tel2"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B8D724" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg><span><span data-k="cislo2">+421 904 592 402</span> <span class="sub">· SK</span></span></a>
 <a class="clink" href="mailto:zilinabears@gmail.com"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B8D724" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span>zilinabears@gmail.com</span></a>
 <a class="clink" href="https://maps.app.goo.gl/PjMVvW672uVLpJYTA"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B8D724" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><span>Bôrický park, Žilina</span></a>
 <a class="clink" href="https://www.facebook.com/Zilina.Bears/"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B8D724" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg><span>Facebook <span class="sub">Zilina.Bears</span></span></a>
@@ -146,13 +147,13 @@
 <h2 class="disp" style="flex:1 1 300px;font-size:44px">In English</h2>
 <div style="flex:2 1 520px;min-width:0;display:flex;flex-direction:column;gap:12px">
 <p style="margin:0">New players of any level are welcome – come and give it a try, we speak English, German and French.</p>
-<p style="margin:0" id="en-sched"><strong>Bytča:</strong> Mondays 17:00, Hliník nad Váhom pitch. <strong>Žilina children:</strong> Wednesdays 16:00, Bôrik park. <strong>Žilina teens and adults:</strong> Wednesdays 17:30, Bôrik park.</p>
-<p style="margin:0">UNIZA students can take rugby as a physical-education subject in both semesters. Contact us on WhatsApp: +421 911 913 244.</p>
+<p style="margin:0" id="en-sched"><!--@rozvrh-en--><strong>Bytča:</strong> Mondays 18:15, GymBy gym. <strong>Žilina children:</strong> Wednesdays 16:00, Bôrik park. <strong>Žilina teens and adults:</strong> Wednesdays 18:00, Vranie pitch.<!--/@rozvrh-en--></p>
+<p style="margin:0">UNIZA students can take rugby as a physical-education subject in both semesters. Contact us on <a href="napiste-nam.html?z=en">WhatsApp <span data-k="cislo">+421 911 913 244</span></a>.</p>
 </div>
 </div>
 </section>
 </main>
-<div class="mbar" aria-label="Rýchly kontakt"><a class="wa" href="https://wa.me/421911913244">WhatsApp</a><a class="tel" href="tel:+421911913244">Zavolať</a></div>
+<div class="mbar" aria-label="Rýchly kontakt"><a class="wa" href="napiste-nam.html">WhatsApp</a><a class="tel" href="tel:+421911913244" data-k="tel">Zavolať</a></div>
 <footer class="foot">
 <div class="wrap">
 <div style="display:flex;flex-direction:column;gap:6px"><strong style="color:#fff">Žilina Bears rugby club</strong><span>Hlinská 2576/1-14, 010 01 Žilina · IČO 42221056</span>

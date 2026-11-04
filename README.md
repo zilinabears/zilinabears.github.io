@@ -19,6 +19,8 @@ sa upravuje priamo v HTML.
 | `data/posts.json` | Zoznam všetkých noviniek (generuje sa) |
 | `data/posts/<id>.json` | Obsah jednotlivých noviniek (generuje sa) |
 | `data/hidden.json` | Zoznam ID príspevkov, ktoré sa na webe nemajú zobraziť |
+| `data/kontakt.json` | Telefónne čísla a text WhatsApp správy |
+| `scripts/build_pages.py` | Vloží rozvrh a kontakty priamo do HTML |
 | `scripts/fetch_social.py` | Sťahovanie z FB a IG cez Meta Graph API |
 | `scripts/backup_archive_images.py` | Jednorazová záloha fotiek zo starých článkov |
 
@@ -27,7 +29,19 @@ sa upravuje priamo v HTML.
 **Zmena času alebo miesta tréningu:** na GitHube otvor `data/treningy.json`, klikni na ceruzku,
 prepíš text v úvodzovkách a klikni na *Commit changes*. Rozvrh sa zmení naraz v úvode, v sekcii
 Tréningy aj v anglickej časti. Do poľa `"oznam"` môžeš napísať krátku správu (napr. že tréning odpadá),
-zobrazí sa žltým v úvode; keď ju vymažeš na `""`, zmizne. Web sa aktualizuje do 2 minút.
+zobrazí sa v úvode; keď ju vymažeš na `""`, zmizne. Web sa aktualizuje do 2 minút.
+
+**Zmena tréningu od určitého dátumu:** do tréningu pridaj blok `"zmena"` s dátumom `"od"`
+(RRRR-MM-DD) a len údajmi, ktoré sa menia. Pre dočasnú zmenu pridaj aj `"do"`. Web zmenu sám
+hlási 7 dní vopred a 7 dní po nej, pri dočasnej aj 7 dní pred návratom. Prepne sa najneskôr
+do 3 hodín po polnoci.
+
+**Telefón a WhatsApp:** číslo a predvolený text WhatsApp správy sú v `data/kontakt.json`.
+Všetky tlačidlá WhatsApp vedú na `napiste-nam.html` (pre QR na letáku: `/napiste-nam`,
+`/napiste-nam?z=uniza`, `/treningy`). Texty pre jednotlivé tlačidlá sú v `"spravy"`.
+
+Rozvrh aj kontakty vkladá do HTML `scripts/build_pages.py` pri každom nasadení, takže sú
+viditeľné aj bez JavaScriptu. V HTML ich preto neprepisuj ručne, prepíšu sa.
 
 **Skrytie príspevku:** ID príspevku je v adrese článku (`clanok.html?id=fb-123_456`).
 Pridaj ho do `data/hidden.json`, napr. `["fb-123_456"]`. Pri ďalšom behu zmizne.
@@ -83,3 +97,4 @@ Aplikáciu vytvoríš na developers.facebook.com (typ *Business*) a pripojíš k
 python3 -m http.server 8000   # potom http://localhost:8000
 ```
 Stránku netreba otvárať priamo zo súboru, novinky sa načítavajú cez `fetch` a vyžadujú server.
+Po zmene `treningy.json` alebo `kontakt.json` spusti `python scripts/build_pages.py`.
