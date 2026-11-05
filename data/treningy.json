@@ -4,20 +4,12 @@
     {
       "skupina": "Bytča",
       "den": "Pondelok",
-      "cas": "17:00",
-      "miesto": "Ihrisko Hliník nad Váhom",
-      "mapa": "https://maps.app.goo.gl/aVQw2BzDFEXa5TG67",
+      "cas": "18:15",
+      "miesto": "Telocvičňa GymBy",
+      "mapa": "https://maps.app.goo.gl/UrJNcmHoS493SBY5A",
       "en_skupina": "Bytča",
       "en_den": "Mondays",
-      "en_miesto": "Hliník nad Váhom pitch",
-      "zmena": {
-        "od": "2026-11-02",
-        "do": "2027-02-28",
-        "cas": "18:15",
-        "miesto": "Telocvičňa GymBy",
-        "mapa": "https://maps.app.goo.gl/UrJNcmHoS493SBY5A",
-        "en_miesto": "GymBy gym"
-      }
+      "en_miesto": "GymBy gym"
     },
     {
       "skupina": "Žilina · Deti",
@@ -32,19 +24,12 @@
     {
       "skupina": "Žilina · Dorast a dospelí",
       "den": "Streda",
-      "cas": "17:30",
-      "miesto": "Bôrický park",
-      "mapa": "https://maps.app.goo.gl/PjMVvW672uVLpJYTA",
+	  "cas": "18:00",
+      "miesto": "Ihrisko Vranie",
+      "mapa": "https://maps.app.goo.gl/re14RBJkdunNndHU6",
       "en_skupina": "Žilina teens and adults",
       "en_den": "Wednesdays",
-      "en_miesto": "Bôrik park",
-      "zmena": {
-        "od": "2026-10-28",
-		"cas": "18:00",
-        "miesto": "Ihrisko Vranie",
-        "mapa": "https://maps.app.goo.gl/re14RBJkdunNndHU6",
-        "en_miesto": "Vranie pitch"
-      }
+      "en_miesto": "Vranie pitch"
     }
   ]
 }
