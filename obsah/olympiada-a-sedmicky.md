@@ -46,7 +46,7 @@ Sedmičky vymysleli v roku **1883** v škótskom mestečku **Melrose** dvaja mä
 
 Prečo sedmičky a nie pätnástky? Dôvody sú praktické:
 
-- **Pätnástky potrebujú medzi zápasmi tri dní oddychu.** Vtedajší prezident svetovej ragbyovej federácie Bernard Lapasset vysvetlil, že turnaj pätnástok sa do 17 dní olympiády jednoducho nedá stihnúť, lebo medzi zápasmi treba aspoň tri dni na zotavenie. Vtedajší šéf olympijského výboru Jacques Rogge to povedal ešte priamejšie: od tímu pätnástok nemôžeme chcieť štyri či päť zápasov za 16 dní.
+- **Pätnástky potrebujú medzi zápasmi aspoň tri dni oddychu.** Vtedajší prezident svetovej ragbyovej federácie Bernard Lapasset vysvetlil, že turnaj pätnástok sa do 17 dní olympiády jednoducho nedá stihnúť, lebo medzi zápasmi treba aspoň tri dni na zotavenie. Vtedajší šéf olympijského výboru Jacques Rogge to povedal ešte priamejšie: od tímu pätnástok nemôžeme chcieť štyri či päť zápasov za 16 dní.
 - **Sedmičky sú krátke a rýchle.** Zápas trvá 14 minút, celý turnaj sa zmestí do troch dní a tímy odohrajú aj dva zápasy za deň.
 - **Šancu majú aj menšie krajiny.** Na sedmičky stačí menší káder, a tak medaily vyhrávajú aj krajiny ako Fidži.
 - **Hrajú muži aj ženy** – a ženské ragby vďaka olympiáde výrazne vyrástlo.
@@ -63,7 +63,7 @@ Olympijský výbor sedmičky ocenil aj za ich rýchlosť a mladistvý štýl. Ra
 | Postup | prví dvaja zo skupiny + 2 najlepšie tretie tímy do štvrťfinále |
 | Potom | štvrťfinále, semifinále, zápasy o medaily aj o ďalšie umiestnenia |
 | Zápas | 2 × 7 minút, prestávka najviac 2 minúty |
-| Remíza vo vyraďovacej časti | predĺženie, na rýchlu smrť |
+| Remíza vo vyraďovacej časti | predĺženie, na náhlu smrť |
 | Trvanie | 3 hracie dni pre mužov, 3 pre ženy |
 
 Pravidlá sedmičiek dovoľujú vo finále predĺžiť polčasy na 10 minút, vo Svetovej sérii sa však od roku 2017 hrá aj finále 2 × 7 minút.
