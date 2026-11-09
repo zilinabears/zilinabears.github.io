@@ -41,7 +41,7 @@ do 3 hodín po polnoci.
 **Akcie a zápasy:** sú v `data/akcie.json`. Akcia má `datum`, `kategoria` (Deti, U14, U16, Dospelí,
 Veteráni 35+ alebo Všetci, viac naraz ako `["Deti", "U14"]`), `nazov` a voliteľne `do`, `miesto`, `mapa`,
 `zaciatok`, `zraz`, `zraz_miesto` a `popis`. Kým nie je vyplnený `zraz`, web aj kalendár napíšu, že ho
-upresníme týždeň pred akciou. Odohraté akcie z webu zmiznú samy, v odoberaných kalendároch ostanú.
+upresníme v týždni pred akciou. Odohraté akcie z webu zmiznú samy, v odoberaných kalendároch ostanú.
 
 **Kalendáre:** build vytvára `kalendar/treningy-*.ics` (opakované tréningy vrátane zmien),
 `kalendar/akcie*.ics` (odber podľa kategórie) a `kalendar/akcia/*.ics` (jedna akcia). Necommitujú sa.

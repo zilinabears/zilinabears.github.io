@@ -159,7 +159,7 @@ def popis(a, today):
     if a.get("zraz"):
         r.append("Zraz: " + ", ".join(v for v in (a.get("zraz"), a.get("zraz_miesto")) if v))
     elif dni(a)[1] >= today:
-        r.append("Zraz upresníme týždeň pred akciou.")
+        r.append("Zraz upresníme v týždni pred akciou.")
     if a.get("popis"):
         r.append(a["popis"])
     r.append(f"Aktuálny zraz a zmeny: {SITE}/akcie")
@@ -214,7 +214,7 @@ def akcia_html(a, today, plna=True):
             z = ", ".join(e(v) for v in (a.get("zraz"), a.get("zraz_miesto")) if v)
             riadky.append(f'<p class="ak-z"><b>Zraz:</b> {z}</p>')
         else:
-            riadky.append('<p class="ak-z ak-z0">Zraz upresníme týždeň pred akciou.</p>')
+            riadky.append('<p class="ak-z ak-z0">Zraz upresníme v týždni pred akciou.</p>')
         if a.get("popis"):
             riadky.append(f"<p>{e(a['popis'])}</p>")
         riadky.append(f'<p class="ak-b">Do kalendára: <a href="{e(google_link(a, today))}" target="_blank" rel="noopener">Google</a> · '

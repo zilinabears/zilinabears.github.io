@@ -1,5 +1,5 @@
 {
-  "_navod": "Akcia = blok { ... } s čiarkou za ním. datum RRRR-MM-DD, kategoria: Deti, U14, U16, Dospelí, Veteráni 35+ alebo Všetci (viac kategórií ako zoznam: [\"Deti\", \"U14\"]). Voliteľne: do (posledný deň viacdňovej akcie), miesto (adresa), mapa, zaciatok, zraz (čas), zraz_miesto, popis. Kým zraz nie je vyplnený, web napíše, že ho upresníme týždeň pred akciou.",
+  "_navod": "Akcia = blok { ... } s čiarkou za ním. datum RRRR-MM-DD, kategoria: Deti, U14, U16, Dospelí, Veteráni 35+ alebo Všetci (viac kategórií ako zoznam: [\"Deti\", \"U14\"]). Voliteľne: do (posledný deň viacdňovej akcie), miesto (adresa), mapa, zaciatok, zraz (čas), zraz_miesto, popis. Kým zraz nie je vyplnený, web napíše, že ho upresníme v týždni pred akciou.",
   "akcie": [
     {
       "datum": "2026-09-05",
