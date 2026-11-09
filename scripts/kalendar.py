@@ -16,11 +16,13 @@ from urllib.parse import quote, urlencode
 
 SITE = "https://zilinabears.github.io"
 HOST = "zilinabears.github.io"
-KATEGORIE = ["Deti", "U14", "U16", "Dospelí", "Veteráni 35+"]   # "Všetci" patrí do každej
+KATEGORIE = ["U8", "U10", "U12", "U14", "U16", "Dospelí", "Veteráni 35+"]   # "Všetci" patrí do každej
+DETI = ["U8", "U10", "U12"]                                                 # "Deti" = všetky tri
 TRVANIE_MIN = 90                                                # dĺžka tréningu, ak nie je "trvanie"
 DNI = {"pondelok": 0, "utorok": 1, "streda": 2, "štvrtok": 3, "piatok": 4, "sobota": 5, "nedeľa": 6}
 DEN_NAZOV = ["pondelok", "utorok", "streda", "štvrtok", "piatok", "sobota", "nedeľa"]
 MES = ["jan", "feb", "mar", "apr", "máj", "jún", "júl", "aug", "sep", "okt", "nov", "dec"]
+MESIAC = ["Január", "Február", "Marec", "Apríl", "Máj", "Jún", "Júl", "August", "September", "Október", "November", "December"]
 e = lambda s: html.escape(str(s or ""), quote=True)
 
 VTIMEZONE = """BEGIN:VTIMEZONE
@@ -140,7 +142,18 @@ def trening_odkazy(x):
 
 def kat(a):
     k = a.get("kategoria") or "Všetci"
-    return k if isinstance(k, list) else [k]
+    out = []
+    for x in (k if isinstance(k, list) else [k]):
+        out += DETI if x == "Deti" else [x]
+    return list(dict.fromkeys(out))
+
+
+def vysledky(a):
+    """Výsledok ako zoznam (družstvo, výsledok); "vysledok" je text alebo {"U10 A": "1. miesto", ...}."""
+    v = a.get("vysledok")
+    if not v:
+        return []
+    return list(v.items()) if isinstance(v, dict) else [("", v)]
 
 
 def dni(a):
@@ -160,6 +173,8 @@ def popis(a, today):
         r.append("Zraz: " + ", ".join(v for v in (a.get("zraz"), a.get("zraz_miesto")) if v))
     elif dni(a)[1] >= today:
         r.append("Zraz upresníme v týždni pred akciou.")
+    for tim, v in vysledky(a):
+        r.append(f"Výsledok{' ' + tim if tim else ''}: {v}")
     if a.get("popis"):
         r.append(a["popis"])
     r.append(f"Aktuálny zraz a zmeny: {SITE}/akcie")
@@ -200,47 +215,82 @@ def datum_html(a):
             f'<small>{dnt}</small></div>')
 
 
-def akcia_html(a, today, plna=True):
+def akcia_html(a, today, plna=True, stav=""):
+    """stav: "" budúca, "minula" odohratá, "najblizsia" zvýraznená najbližšia."""
     kats = kat(a)
     badges = "".join(f'<span class="badge akcia-k">{e(k)}</span>' for k in kats)
+    if stav == "najblizsia":
+        badges = '<span class="badge ak-naj">Najbližšia akcia</span>' + badges
     riadky = []
     if a.get("miesto"):
         m = e(a["miesto"])
         riadky.append(f'<p class="ak-m"><a href="{e(a["mapa"])}">{m} →</a></p>' if a.get("mapa") else f'<p class="ak-m">{m}</p>')
-    if a.get("zaciatok"):
-        riadky.append(f"<p>Začiatok {e(a['zaciatok'])}</p>")
-    if plna:
-        if a.get("zraz"):
-            z = ", ".join(e(v) for v in (a.get("zraz"), a.get("zraz_miesto")) if v)
-            riadky.append(f'<p class="ak-z"><b>Zraz:</b> {z}</p>')
-        else:
-            riadky.append('<p class="ak-z ak-z0">Zraz upresníme v týždni pred akciou.</p>')
-        if a.get("popis"):
-            riadky.append(f"<p>{e(a['popis'])}</p>")
-        riadky.append(f'<p class="ak-b">Do kalendára: <a href="{e(google_link(a, today))}" target="_blank" rel="noopener">Google</a> · '
-                      f'<a href="kalendar/akcia/{e(akcia_id(a))}.ics">Apple / iné</a></p>')
+    vys = vysledky(a)
+    if vys:
+        li = "".join(f"<li>{'<b>' + e(t) + '</b> ' if t else ''}{e(v)}</li>" for t, v in vys)
+        riadky.append(f'<div class="ak-v"><b>Výsledok</b><ul>{li}</ul></div>')
+    if stav != "minula":
+        if a.get("zaciatok"):
+            riadky.append(f"<p>Začiatok {e(a['zaciatok'])}</p>")
+        if plna:
+            if a.get("zraz"):
+                z = ", ".join(e(v) for v in (a.get("zraz"), a.get("zraz_miesto")) if v)
+                riadky.append(f'<p class="ak-z"><b>Zraz:</b> {z}</p>')
+            else:
+                riadky.append('<p class="ak-z ak-z0">Zraz upresníme v týždni pred akciou.</p>')
+            if a.get("popis"):
+                riadky.append(f"<p>{e(a['popis'])}</p>")
+            riadky.append(f'<p class="ak-b">Do kalendára: <a href="{e(google_link(a, today))}" target="_blank" rel="noopener">Google</a> · '
+                          f'<a href="kalendar/akcia/{e(akcia_id(a))}.ics">Apple / iné</a></p>')
     data = e(" ".join(slug(k) for k in kats))
-    return (f'<article class="post akcia" data-kat="{data}">{datum_html(a)}<div class="body">'
+    cls = f"post akcia {stav}".strip()
+    idattr = ' id="najblizsia"' if stav == "najblizsia" else ""
+    return (f'<article class="{cls}"{idattr} data-kat="{data}">{datum_html(a)}<div class="body">'
             f'<span class="meta">{badges}</span>'
             f'<h3>{e(a["nazov"])}</h3>{"".join(riadky)}</div></article>')
 
 
+def sezona(today):
+    """Začiatok aktuálnej sezóny (1. september)."""
+    return date(today.year if today.month >= 8 else today.year - 1, 9, 1)
+
+
 def akcie_bloky(akcie, today):
-    buduce = sorted((a for a in akcie if dni(a)[1] >= today), key=lambda a: (a["datum"], a["nazov"]))
-    zoznam = "\n".join(akcia_html(a, today) for a in buduce) or \
-        '<div class="empty" style="grid-column:1/-1">Najbližšie akcie doplníme, keď bude známy rozpis.</div>'
+    zor = sorted(akcie, key=lambda a: (a["datum"], a["nazov"]))
+    buduce = [a for a in zor if dni(a)[1] >= today]
+    najbl = buduce[0] if buduce else None
+    sez = [a for a in zor if dni(a)[0] >= sezona(today) or dni(a)[1] >= today]
+    mesiace, skupiny = [], {}
+    for a in sez:
+        od = dni(a)[0]
+        k = f"{od.year}-{od.month:02d}"
+        if k not in skupiny:
+            skupiny[k] = []
+            mesiace.append((k, f"{MESIAC[od.month - 1]} {od.year}"))
+        skupiny[k].append(a)
+    casti = []
+    for k, nazov in mesiace:
+        dl = "\n".join(akcia_html(a, today, stav="najblizsia" if a is najbl else "minula" if dni(a)[1] < today else "")
+                       for a in skupiny[k])
+        casti.append(f'<section class="ak-mesiac" id="m-{k}"><h2 class="ak-mh">{e(nazov)}</h2>'
+                     f'<div class="grid news akcie">{dl}</div></section>')
+    if not buduce:
+        casti.append('<div class="empty">Ďalšie akcie doplníme, keď bude známy rozpis.</div>')
     chips = ['<button type="button" class="chip" aria-pressed="true" data-f="">Všetky</button>'] + \
         [f'<button type="button" class="chip" aria-pressed="false" data-f="{slug(k)}">{e(k)}</button>' for k in KATEGORIE]
+    skoky = "".join(f'<a class="ak-skok" href="#m-{k}">{e(n.split()[0])}</a>' for k, n in mesiace)
     odbery = []
     for nazov, subor in [("Všetky akcie", "akcie.ics")] + [(k, f"akcie-{slug(k)}.ics") for k in KATEGORIE]:
         apple, google = odber(subor)
         odbery.append(f'<li><b>{e(nazov)}</b><span><a href="{e(apple)}">iPhone</a> · '
                       f'<a href="{e(google)}" target="_blank" rel="noopener">Google</a></span></li>')
-    uvod = "\n".join(akcia_html(a, today, plna=False) for a in buduce[:4])
+    uvod = "\n".join(akcia_html(a, today, plna=False, stav="najblizsia" if i == 0 else "")
+                     for i, a in enumerate(buduce[:4]))
     home = (f'<section id="akcie" class="wrap sec"><div class="sec-head"><div><div class="kicker">Kalendár</div>'
-            f'<h2 class="disp h2">Najbližšie akcie</h2></div><a class="more" href="akcie.html">Všetky akcie a odber kalendára →</a></div>'
+            f'<h2 class="disp h2">Najbližšie akcie</h2></div><a class="more" href="akcie.html">Celý kalendár a odber →</a></div>'
             f'<div class="grid news akcie">{uvod}</div></section>') if buduce else ""
-    return {"akcie-zoznam": zoznam, "akcie-filtre": "".join(chips), "akcie-odber": "".join(odbery), "akcie-uvod": home}
+    return {"akcie-zoznam": "\n".join(casti), "akcie-filtre": "".join(chips), "akcie-mesiace": skoky,
+            "akcie-odber": "".join(odbery), "akcie-uvod": home}
 
 
 def zapis_kalendare(root, treningy, akcie, today):

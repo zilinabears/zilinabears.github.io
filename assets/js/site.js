@@ -82,7 +82,13 @@
       const k = el.dataset.kat.split(" ");
       el.hidden = Boolean(f) && !k.includes(f) && !k.includes("vsetci");
     });
+    document.querySelectorAll("#akcie-list .ak-mesiac").forEach((m) => {
+      m.hidden = !m.querySelector(".akcia:not([hidden])");
+    });
   });
+  // na stránke akcií skočiť na najbližšiu akciu
+  const naj = document.querySelector("#akcie-list #najblizsia");
+  if (naj && !location.hash) naj.scrollIntoView({ block: "start" });
 
   // ---------- úvodná stránka: 3 najnovšie
   const home = document.getElementById("home-news");

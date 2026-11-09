@@ -1,9 +1,13 @@
 {
-  "_navod": "Akcia = blok { ... } s čiarkou za ním. datum RRRR-MM-DD, kategoria: Deti, U14, U16, Dospelí, Veteráni 35+ alebo Všetci (viac kategórií ako zoznam: [\"Deti\", \"U14\"]). Voliteľne: do (posledný deň viacdňovej akcie), miesto (adresa), mapa, zaciatok, zraz (čas), zraz_miesto, popis. Kým zraz nie je vyplnený, web napíše, že ho upresníme v týždni pred akciou.",
+  "_navod": "Akcia = blok { ... } s čiarkou za ním. datum RRRR-MM-DD, kategoria: U8, U10, U12, U14, U16, Dospelí, Veteráni 35+ alebo Všetci (viac naraz ako zoznam: [\"U8\", \"U10\", \"U12\"]). Voliteľne: do (posledný deň viacdňovej akcie), miesto (adresa), mapa, zaciatok, zraz (čas), zraz_miesto, popis, vysledok (text, napr. \"24:12\", alebo pre viac družstiev {\"U10 A\": \"1. miesto\", \"U10 B\": \"4. miesto\"}). Kým nie je vyplnený zraz, web napíše, že ho upresníme v týždni pred akciou.",
   "akcie": [
     {
       "datum": "2026-09-05",
-      "kategoria": "Deti",
+      "kategoria": [
+        "U8",
+        "U10",
+        "U12"
+      ],
       "nazov": "Turnaj U8 · U10 · U12 – Vyškov",
       "miesto": "Vyškov, Česko",
       "zaciatok": "cca 9:00"
@@ -24,7 +28,11 @@
     },
     {
       "datum": "2026-09-12",
-      "kategoria": "Deti",
+      "kategoria": [
+        "U8",
+        "U10",
+        "U12"
+      ],
       "nazov": "Turnaj U8 · U10 · U12 – Dragon Brno",
       "miesto": "Brno, Česko",
       "zaciatok": "cca 9:00"
@@ -45,7 +53,11 @@
     },
     {
       "datum": "2026-09-19",
-      "kategoria": "Deti",
+      "kategoria": [
+        "U8",
+        "U10",
+        "U12"
+      ],
       "nazov": "Turnaj U8 · U10 · U12 – Havířov",
       "miesto": "Havířov, Astronautů 859, Česko",
       "zaciatok": "cca 9:00"
@@ -73,14 +85,22 @@
     },
     {
       "datum": "2026-09-26",
-      "kategoria": "Deti",
+      "kategoria": [
+        "U8",
+        "U10",
+        "U12"
+      ],
       "nazov": "Turnaj U8 · U10 · U12 – Bystrc Brno",
       "miesto": "Brno, Česko",
       "zaciatok": "cca 9:00"
     },
     {
       "datum": "2026-10-03",
-      "kategoria": "Deti",
+      "kategoria": [
+        "U8",
+        "U10",
+        "U12"
+      ],
       "nazov": "Turnaj U8 · U10 · U12 – Ostrava",
       "miesto": "Ostrava, Česko",
       "zaciatok": "cca 9:00"
@@ -101,7 +121,11 @@
     },
     {
       "datum": "2026-10-10",
-      "kategoria": "Deti",
+      "kategoria": [
+        "U8",
+        "U10",
+        "U12"
+      ],
       "nazov": "Turnaj U8 · U10 · U12 – Olomouc",
       "miesto": "Olomouc, Česko",
       "zaciatok": "cca 9:00"
@@ -132,7 +156,9 @@
     {
       "datum": "2026-10-18",
       "kategoria": [
-        "Deti",
+        "U8",
+        "U10",
+        "U12",
         "U14"
       ],
       "nazov": "Turnaj Juvenia Krakov",
@@ -140,7 +166,11 @@
     },
     {
       "datum": "2026-10-24",
-      "kategoria": "Deti",
+      "kategoria": [
+        "U8",
+        "U10",
+        "U12"
+      ],
       "nazov": "Turnaj U8 · U10 · U12 – Zlín",
       "miesto": "Zlín, Česko",
       "zaciatok": "cca 9:00"

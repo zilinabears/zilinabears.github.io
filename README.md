@@ -38,10 +38,10 @@ zobrazí sa v úvode; keď ju vymažeš na `""`, zmizne. Web sa aktualizuje do 2
 hlási 7 dní vopred a 7 dní po nej, pri dočasnej aj 7 dní pred návratom. Prepne sa najneskôr
 do 3 hodín po polnoci.
 
-**Akcie a zápasy:** sú v `data/akcie.json`. Akcia má `datum`, `kategoria` (Deti, U14, U16, Dospelí,
-Veteráni 35+ alebo Všetci, viac naraz ako `["Deti", "U14"]`), `nazov` a voliteľne `do`, `miesto`, `mapa`,
-`zaciatok`, `zraz`, `zraz_miesto` a `popis`. Kým nie je vyplnený `zraz`, web aj kalendár napíšu, že ho
-upresníme v týždni pred akciou. Odohraté akcie z webu zmiznú samy, v odoberaných kalendároch ostanú.
+**Akcie a zápasy:** sú v `data/akcie.json`. Akcia má `datum`, `kategoria` (U8, U10, U12, U14, U16, Dospelí,
+Veteráni 35+ alebo Všetci, viac naraz ako `["U8", "U10", "U12"]`), `nazov` a voliteľne `do`, `miesto`, `mapa`,
+`zaciatok`, `zraz`, `zraz_miesto`, `popis` a `vysledok` (text alebo `{"U10 A": "1. miesto"}` pre viac družstiev). Kým nie je vyplnený `zraz`, web aj kalendár napíšu, že ho
+upresníme v týždni pred akciou. Web ukazuje celú sezónu od 1. septembra po mesiacoch, odohraté akcie vyblednuté a najbližšiu zvýraznenú.
 
 **Kalendáre:** build vytvára `kalendar/treningy-*.ics` (opakované tréningy vrátane zmien),
 `kalendar/akcie*.ics` (odber podľa kategórie) a `kalendar/akcia/*.ics` (jedna akcia). Necommitujú sa.

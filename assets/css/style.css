@@ -186,7 +186,16 @@ footer.foot a{color:#fff}
 
 /* ---------- akcie a kalendár */
 .cal{font-size:15px;color:var(--muted);margin-top:4px}.cal a{font-weight:700}
-.akcia[hidden]{display:none}
+.akcia[hidden],.ak-mesiac[hidden]{display:none}
+.ak-mesiac{margin-bottom:40px;scroll-margin-top:96px}
+.ak-mh{font-family:"Barlow Condensed",sans-serif;font-weight:800;text-transform:uppercase;font-size:30px;margin:0 0 16px;padding-bottom:8px;border-bottom:2px solid var(--line)}
+.ak-mesiace{display:flex;flex-wrap:wrap;gap:8px 18px;margin:0 0 18px}
+.ak-skok{font-weight:700}
+.akcia.minula .thumb.ak-d{background:var(--muted);aspect-ratio:16/5}.akcia.minula h3,.akcia.minula .ak-m{color:var(--muted)}
+.akcia.najblizsia{outline:4px solid var(--accent);scroll-margin-top:110px}
+.badge.ak-naj{background:var(--dark);color:var(--accent)}
+.ak-v{background:var(--soft);border-radius:6px;padding:6px 10px;font-size:15px}
+.ak-v ul{list-style:none;margin:2px 0 0;padding:0}.ak-v li b{margin-right:4px}
 .post .thumb.ak-d{aspect-ratio:16/7;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;background:var(--dark);color:#fff;text-align:center}
 .ak-d b{font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:56px;line-height:1}
 .ak-d span{color:var(--accent);font-weight:700;text-transform:uppercase;font-size:18px;letter-spacing:2px}
