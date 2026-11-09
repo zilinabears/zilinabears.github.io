@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Akcie a zápasy – Žilina Bears</title>
+<meta name="description" content="Turnaje, zápasy a akcie ragbyového klubu Žilina Bears s možnosťou pridať si ich do kalendára.">
+<meta property="og:title" content="Akcie a zápasy – Žilina Bears">
+<meta property="og:description" content="Turnaje, zápasy a akcie ragbyového klubu Žilina Bears s možnosťou pridať si ich do kalendára.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0E2A1C">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/barlow-condensed-latin-ext-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header class="top">
+<div class="wrap">
+<a class="logo" href="index.html"><img src="assets/img/logo.png" alt="Žilina Bears – úvod" width="99" height="104"></a>
+<button type="button" class="burger" aria-expanded="false" aria-controls="menu" aria-label="Otvoriť menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></svg></button>
+<nav id="menu" class="menu" aria-label="Hlavná navigácia">
+<a class="n" href="index.html#noviny">Noviny</a>
+<a class="n" href="index.html#treningy">Tréningy</a>
+<a class="n" href="akcie.html" aria-current="page">Akcie</a>
+<a class="n" href="index.html#kategorie">Pre koho</a>
+<a class="n" href="ragby.html">O ragby</a>
+<a class="n" href="index.html#kontakt">Kontakt</a>
+<a class="n" href="index.html#en" lang="en" style="color:#B8D724">EN</a>
+<a class="cta" href="napiste-nam.html">Pridaj sa</a>
+</nav>
+</div>
+</header>
+<main>
+<section class="dark">
+<div class="wrap" style="padding-top:64px;padding-bottom:56px;display:flex;flex-direction:column;gap:14px">
+<div class="kicker">Kalendár</div>
+<h1 class="disp" style="font-size:clamp(52px,6vw,72px)">Akcie a zápasy</h1>
+<p style="margin:0;color:var(--pale);max-width:680px;font-size:20px">Mládež hrá českú ligu v spoločnom tíme s Havířovom a Ostravou. Noví hráči sa k zápasom pridávajú po zhruba dvoch mesiacoch tréningov.</p>
+</div>
+</section>
+<div class="wrap" style="padding-top:40px;padding-bottom:96px">
+<div id="ak-filtre" class="chips" role="group" aria-label="Filtrovať podľa kategórie"><!--@akcie-filtre--><button type="button" class="chip" aria-pressed="true" data-f="">Všetky</button><button type="button" class="chip" aria-pressed="false" data-f="deti">Deti</button><button type="button" class="chip" aria-pressed="false" data-f="u14">U14</button><button type="button" class="chip" aria-pressed="false" data-f="u16">U16</button><button type="button" class="chip" aria-pressed="false" data-f="dospeli">Dospelí</button><button type="button" class="chip" aria-pressed="false" data-f="veterani-35">Veteráni 35+</button><!--/@akcie-filtre--></div>
+<div id="akcie-list" class="grid news akcie"><!--@akcie-zoznam--><article class="post akcia" data-kat="vsetci"><div class="thumb ak-d" aria-hidden="true"><b>14.</b><span>nov</span><small>sobota</small></div><div class="body"><span class="meta"><span class="badge akcia-k">Všetci</span></span><h3>Priateľský zápas SVK–ALB + turnaj detí</h3><p class="ak-m">Piešťany, Slovensko</p><p class="ak-z ak-z0">Zraz upresníme týždeň pred akciou.</p><p class="ak-b">Do kalendára: <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Priate%C4%BEsk%C3%BD%20z%C3%A1pas%20SVK%E2%80%93ALB%20%2B%20turnaj%20det%C3%AD&amp;dates=20261114%2F20261115&amp;details=Zraz%20upresn%C3%ADme%20t%C3%BD%C5%BEde%C5%88%20pred%20akciou.%0AAktu%C3%A1lny%20zraz%20a%20zmeny%3A%20https%3A%2F%2Fzilinabears.github.io%2Fakcie&amp;location=Pie%C5%A1%C5%A5any%2C%20Slovensko&amp;ctz=Europe%2FBratislava" target="_blank" rel="noopener">Google</a> · <a href="kalendar/akcia/2026-11-14-priatelsky-zapas-svkalb-turnaj-deti.ics">Apple / iné</a></p></div></article><!--/@akcie-zoznam--></div>
+<div class="odber" style="margin:40px 0 0">
+<div><strong>Odoberaj kalendár</strong><p>Nové akcie a zraz sa ti objavia v kalendári samé. Vyber si len svoju kategóriu.</p></div>
+<ul><!--@akcie-odber--><li><b>Všetky akcie</b><span><a href="webcal://zilinabears.github.io/kalendar/akcie.ics">iPhone</a> · <a href="https://calendar.google.com/calendar/render?cid=webcal%3A%2F%2Fzilinabears.github.io%2Fkalendar%2Fakcie.ics" target="_blank" rel="noopener">Google</a></span></li><li><b>Deti</b><span><a href="webcal://zilinabears.github.io/kalendar/akcie-deti.ics">iPhone</a> · <a href="https://calendar.google.com/calendar/render?cid=webcal%3A%2F%2Fzilinabears.github.io%2Fkalendar%2Fakcie-deti.ics" target="_blank" rel="noopener">Google</a></span></li><li><b>U14</b><span><a href="webcal://zilinabears.github.io/kalendar/akcie-u14.ics">iPhone</a> · <a href="https://calendar.google.com/calendar/render?cid=webcal%3A%2F%2Fzilinabears.github.io%2Fkalendar%2Fakcie-u14.ics" target="_blank" rel="noopener">Google</a></span></li><li><b>U16</b><span><a href="webcal://zilinabears.github.io/kalendar/akcie-u16.ics">iPhone</a> · <a href="https://calendar.google.com/calendar/render?cid=webcal%3A%2F%2Fzilinabears.github.io%2Fkalendar%2Fakcie-u16.ics" target="_blank" rel="noopener">Google</a></span></li><li><b>Dospelí</b><span><a href="webcal://zilinabears.github.io/kalendar/akcie-dospeli.ics">iPhone</a> · <a href="https://calendar.google.com/calendar/render?cid=webcal%3A%2F%2Fzilinabears.github.io%2Fkalendar%2Fakcie-dospeli.ics" target="_blank" rel="noopener">Google</a></span></li><li><b>Veteráni 35+</b><span><a href="webcal://zilinabears.github.io/kalendar/akcie-veterani-35.ics">iPhone</a> · <a href="https://calendar.google.com/calendar/render?cid=webcal%3A%2F%2Fzilinabears.github.io%2Fkalendar%2Fakcie-veterani-35.ics" target="_blank" rel="noopener">Google</a></span></li><!--/@akcie-odber--></ul>
+<p class="odber-p">Na Androide sa odber otvorí v Google Kalendári na webe a obnovuje sa s oneskorením. Jednu akciu si pridáš tlačidlom pri nej.</p>
+</div>
+</div>
+</main>
+<div class="mbar" aria-label="Rýchly kontakt"><a class="wa" href="napiste-nam.html">WhatsApp</a><a class="tel" href="tel:+421911913244" data-k="tel">Zavolať</a></div>
+<footer class="foot">
+<div class="wrap">
+<div style="display:flex;flex-direction:column;gap:6px"><strong style="color:#fff">Žilina Bears rugby club</strong><span>Hlinská 2576/1-14, 010 01 Žilina · IČO 42221056</span>
+<span><a href="index.html#klub">O klube</a> · <a href="https://www.facebook.com/Zilina.Bears/">Facebook</a> · <a href="https://www.instagram.com/zilinabears.rugby/">Instagram</a> · <a href="https://www.tiktok.com/@zilinabearsrugbyclub">TikTok</a> · <a href="https://www.youtube.com/channel/UC67L-zETtiWFAgtSHdmEluQ">YouTube</a></span></div>
+<div style="max-width:420px">Ďakujeme: Mesto Žilina · CVČ Žirafa · Žilinská univerzita · Obec Konská · FK Hliník · Rugby Club Havířov</div>
+</div>
+</footer>
+<script src="assets/js/site.js" defer></script>
+</body>
+</html>

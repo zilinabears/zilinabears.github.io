@@ -71,6 +71,19 @@
 
   // rozvrh tréningov a kontakty vkladá do HTML scripts/build_pages.py pri nasadení
 
+  // ---------- filter akcií podľa kategórie (zoznam vkladá build)
+  const af = document.getElementById("ak-filtre");
+  if (af) af.addEventListener("click", (ev) => {
+    const b = ev.target.closest("button[data-f]");
+    if (!b) return;
+    af.querySelectorAll("button").forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+    const f = b.dataset.f;
+    document.querySelectorAll("#akcie-list .akcia").forEach((el) => {
+      const k = el.dataset.kat.split(" ");
+      el.hidden = Boolean(f) && !k.includes(f) && !k.includes("vsetci");
+    });
+  });
+
   // ---------- úvodná stránka: 3 najnovšie
   const home = document.getElementById("home-news");
   if (home) loadIndex().then((l) => { home.innerHTML = l.slice(0, 6).map(card).join(""); }).catch(() => fail(home));

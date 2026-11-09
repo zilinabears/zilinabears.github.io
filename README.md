@@ -19,6 +19,8 @@ sa upravuje priamo v HTML.
 | `data/posts.json` | Zoznam všetkých noviniek (generuje sa) |
 | `data/posts/<id>.json` | Obsah jednotlivých noviniek (generuje sa) |
 | `data/hidden.json` | Zoznam ID príspevkov, ktoré sa na webe nemajú zobraziť |
+| `data/akcie.json` | Turnaje, zápasy a akcie |
+| `scripts/kalendar.py` | Kalendáre .ics a zoznam akcií |
 | `data/kontakt.json` | Telefónne čísla a text WhatsApp správy |
 | `scripts/build_pages.py` | Vloží rozvrh a kontakty priamo do HTML |
 | `scripts/fetch_social.py` | Sťahovanie z FB a IG cez Meta Graph API |
@@ -35,6 +37,14 @@ zobrazí sa v úvode; keď ju vymažeš na `""`, zmizne. Web sa aktualizuje do 2
 (RRRR-MM-DD) a len údajmi, ktoré sa menia. Pre dočasnú zmenu pridaj aj `"do"`. Web zmenu sám
 hlási 7 dní vopred a 7 dní po nej, pri dočasnej aj 7 dní pred návratom. Prepne sa najneskôr
 do 3 hodín po polnoci.
+
+**Akcie a zápasy:** sú v `data/akcie.json`. Akcia má `datum`, `kategoria` (Deti, U14, U16, Dospelí,
+Veteráni 35+ alebo Všetci, viac naraz ako `["Deti", "U14"]`), `nazov` a voliteľne `do`, `miesto`, `mapa`,
+`zaciatok`, `zraz`, `zraz_miesto` a `popis`. Kým nie je vyplnený `zraz`, web aj kalendár napíšu, že ho
+upresníme týždeň pred akciou. Odohraté akcie z webu zmiznú samy, v odoberaných kalendároch ostanú.
+
+**Kalendáre:** build vytvára `kalendar/treningy-*.ics` (opakované tréningy vrátane zmien),
+`kalendar/akcie*.ics` (odber podľa kategórie) a `kalendar/akcia/*.ics` (jedna akcia). Necommitujú sa.
 
 **Telefón a WhatsApp:** číslo a predvolený text WhatsApp správy sú v `data/kontakt.json`.
 Všetky tlačidlá WhatsApp vedú na `napiste-nam.html` (pre QR na letáku: `/napiste-nam`,
@@ -97,4 +107,4 @@ Aplikáciu vytvoríš na developers.facebook.com (typ *Business*) a pripojíš k
 python3 -m http.server 8000   # potom http://localhost:8000
 ```
 Stránku netreba otvárať priamo zo súboru, novinky sa načítavajú cez `fetch` a vyžadujú server.
-Po zmene `treningy.json` alebo `kontakt.json` spusti `python scripts/build_pages.py`.
+Po zmene `treningy.json`, `akcie.json` alebo `kontakt.json` spusti `python scripts/build_pages.py`.

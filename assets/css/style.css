@@ -183,3 +183,22 @@ footer.foot a{color:#fff}
 .content figure img{width:100%;max-height:520px;object-fit:cover;border-radius:10px;display:block}
 .content figcaption{font-size:14px;color:var(--muted);margin-top:6px;line-height:1.4}
 .content figcaption a{color:var(--muted)}
+
+/* ---------- akcie a kalendár */
+.cal{font-size:15px;color:var(--muted);margin-top:4px}.cal a{font-weight:700}
+.akcia[hidden]{display:none}
+.post .thumb.ak-d{aspect-ratio:16/7;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;background:var(--dark);color:#fff;text-align:center}
+.ak-d b{font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:56px;line-height:1}
+.ak-d span{color:var(--accent);font-weight:700;text-transform:uppercase;font-size:18px;letter-spacing:2px}
+.ak-d small{color:var(--pale);font-size:15px}
+.badge.akcia-k{background:var(--accent);color:var(--dark)}
+.ak-m a{font-weight:600}
+.post p.ak-z{background:#F1F7D2;border-left:4px solid var(--accent);border-radius:6px;padding:6px 10px;color:var(--ink)}
+.post p.ak-z0{color:var(--muted);font-style:italic}
+@media (max-width:560px){.post .thumb.ak-d{aspect-ratio:auto;padding:14px 0}.ak-d b{font-size:40px}}
+.post p.ak-b{font-size:15px;margin-top:auto;padding-top:6px}.ak-b a{font-weight:700}
+.odber{background:var(--soft);border-radius:12px;padding:20px 24px;margin-bottom:28px;display:flex;flex-wrap:wrap;gap:12px 32px}
+.odber>div{flex:1 1 260px}.odber p{margin:4px 0 0}
+.odber ul{list-style:none;margin:0;padding:0;flex:2 1 380px;display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px 20px}
+.odber li{display:flex;flex-direction:column}.odber li a{font-weight:700}
+.odber-p{flex-basis:100%;font-size:14px;color:var(--muted)}

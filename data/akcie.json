@@ -1,0 +1,191 @@
+{
+  "_navod": "Akcia = blok { ... } s čiarkou za ním. datum RRRR-MM-DD, kategoria: Deti, U14, U16, Dospelí, Veteráni 35+ alebo Všetci (viac kategórií ako zoznam: [\"Deti\", \"U14\"]). Voliteľne: do (posledný deň viacdňovej akcie), miesto (adresa), mapa, zaciatok, zraz (čas), zraz_miesto, popis. Kým zraz nie je vyplnený, web napíše, že ho upresníme týždeň pred akciou.",
+  "akcie": [
+    {
+      "datum": "2026-09-05",
+      "kategoria": "Deti",
+      "nazov": "Turnaj U8 · U10 · U12 – Vyškov",
+      "miesto": "Vyškov, Česko",
+      "zaciatok": "cca 9:00"
+    },
+    {
+      "datum": "2026-09-05",
+      "kategoria": "U16",
+      "nazov": "U16 – Petrovice Praha",
+      "miesto": "Praha, Česko",
+      "zaciatok": "cca 9:00"
+    },
+    {
+      "datum": "2026-09-06",
+      "kategoria": "U14",
+      "nazov": "U14 – Říčany Praha",
+      "miesto": "Praha, Česko",
+      "zaciatok": "cca 9:00"
+    },
+    {
+      "datum": "2026-09-12",
+      "kategoria": "Deti",
+      "nazov": "Turnaj U8 · U10 · U12 – Dragon Brno",
+      "miesto": "Brno, Česko",
+      "zaciatok": "cca 9:00"
+    },
+    {
+      "datum": "2026-09-12",
+      "kategoria": "U16",
+      "nazov": "U16 – Dragon Brno",
+      "miesto": "Havířov, Astronautů 859, Česko",
+      "zaciatok": "cca 9:00"
+    },
+    {
+      "datum": "2026-09-13",
+      "kategoria": "U14",
+      "nazov": "U14 – Tatra Praha",
+      "miesto": "Havířov, Astronautů 859, Česko",
+      "zaciatok": "cca 9:00"
+    },
+    {
+      "datum": "2026-09-19",
+      "kategoria": "Deti",
+      "nazov": "Turnaj U8 · U10 · U12 – Havířov",
+      "miesto": "Havířov, Astronautů 859, Česko",
+      "zaciatok": "cca 9:00"
+    },
+    {
+      "datum": "2026-09-19",
+      "kategoria": "U16",
+      "nazov": "U16 – Babice/Tatra B Praha",
+      "miesto": "Havířov, Astronautů 859, Česko",
+      "zaciatok": "cca 9:00",
+      "popis": "Súper zatiaľ neistý – Babice alebo Tatra B Praha."
+    },
+    {
+      "datum": "2026-09-19",
+      "kategoria": "Veteráni 35+",
+      "nazov": "Memoriál Ondřeja Sekory – veteránsky turnaj",
+      "miesto": "Bystrc, Brno, Česko"
+    },
+    {
+      "datum": "2026-09-20",
+      "kategoria": "U14",
+      "nazov": "U14 – Petrovice Praha",
+      "miesto": "Havířov, Astronautů 859, Česko",
+      "zaciatok": "cca 9:00"
+    },
+    {
+      "datum": "2026-09-26",
+      "kategoria": "Deti",
+      "nazov": "Turnaj U8 · U10 · U12 – Bystrc Brno",
+      "miesto": "Brno, Česko",
+      "zaciatok": "cca 9:00"
+    },
+    {
+      "datum": "2026-10-03",
+      "kategoria": "Deti",
+      "nazov": "Turnaj U8 · U10 · U12 – Ostrava",
+      "miesto": "Ostrava, Česko",
+      "zaciatok": "cca 9:00"
+    },
+    {
+      "datum": "2026-10-03",
+      "kategoria": "U16",
+      "nazov": "U16 – Bystrc Brno",
+      "miesto": "Havířov, Astronautů 859, Česko",
+      "zaciatok": "cca 9:00"
+    },
+    {
+      "datum": "2026-10-04",
+      "kategoria": "U14",
+      "nazov": "U14 – Bystrc Brno",
+      "miesto": "Brno, Česko",
+      "zaciatok": "cca 9:00"
+    },
+    {
+      "datum": "2026-10-10",
+      "kategoria": "Deti",
+      "nazov": "Turnaj U8 · U10 · U12 – Olomouc",
+      "miesto": "Olomouc, Česko",
+      "zaciatok": "cca 9:00"
+    },
+    {
+      "datum": "2026-10-10",
+      "kategoria": "U16",
+      "nazov": "U16 – Babice/Tatra B Praha",
+      "miesto": "Praha, Česko",
+      "zaciatok": "cca 9:00",
+      "popis": "Súper zatiaľ neistý – Babice alebo Tatra B Praha."
+    },
+    {
+      "datum": "2026-10-11",
+      "kategoria": "U14",
+      "nazov": "U14 – Vyškov/Ostrava",
+      "miesto": "Havířov, Astronautů 859, Česko",
+      "zaciatok": "cca 9:00",
+      "popis": "Súper zatiaľ neistý – Vyškov alebo Ostrava."
+    },
+    {
+      "datum": "2026-10-17",
+      "kategoria": "U16",
+      "nazov": "U16 – Slávie Praha",
+      "miesto": "Havířov, Astronautů 859, Česko",
+      "zaciatok": "cca 9:00"
+    },
+    {
+      "datum": "2026-10-18",
+      "kategoria": [
+        "Deti",
+        "U14"
+      ],
+      "nazov": "Turnaj Juvenia Krakov",
+      "miesto": "Krakov, Poľsko"
+    },
+    {
+      "datum": "2026-10-24",
+      "kategoria": "Deti",
+      "nazov": "Turnaj U8 · U10 · U12 – Zlín",
+      "miesto": "Zlín, Česko",
+      "zaciatok": "cca 9:00"
+    },
+    {
+      "datum": "2026-10-24",
+      "kategoria": "U16",
+      "nazov": "U16 – Tatra Praha",
+      "miesto": "Praha, Česko",
+      "zaciatok": "cca 9:00"
+    },
+    {
+      "datum": "2026-10-25",
+      "kategoria": "U14",
+      "nazov": "U14 – Praga Praha",
+      "miesto": "Praha, Česko",
+      "zaciatok": "cca 9:00"
+    },
+    {
+      "datum": "2026-11-01",
+      "kategoria": "U14",
+      "nazov": "U14 – Olomouc/Zlín",
+      "miesto": "Olomouc alebo Zlín, Česko",
+      "zaciatok": "cca 9:00",
+      "popis": "Súper zatiaľ neistý – Olomouc alebo Zlín."
+    },
+    {
+      "datum": "2026-11-07",
+      "kategoria": "U16",
+      "nazov": "U16 – Sparta Praha",
+      "miesto": "Praha, Česko",
+      "zaciatok": "cca 9:00"
+    },
+    {
+      "datum": "2026-11-08",
+      "kategoria": "U14",
+      "nazov": "U14 – Akademie Praha",
+      "miesto": "Havířov, Astronautů 859, Česko",
+      "zaciatok": "cca 9:00"
+    },
+    {
+      "datum": "2026-11-14",
+      "kategoria": "Všetci",
+      "nazov": "Priateľský zápas SVK–ALB + turnaj detí",
+      "miesto": "Piešťany, Slovensko"
+    }
+  ]
+}

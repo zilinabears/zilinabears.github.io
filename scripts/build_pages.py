@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
-Vloží rozvrh z data/treningy.json a kontakty z data/kontakt.json priamo do HTML stránok,
+Vloží rozvrh z data/treningy.json, akcie z data/akcie.json a kontakty z data/kontakt.json
+priamo do HTML stránok a vytvorí kalendáre v kalendar/ (pozri scripts/kalendar.py),
 aby boli aktuálne aj bez JavaScriptu (vyhľadávače, náhľady odkazov, staršie prehliadače).
 
 Spúšťa sa pri každom nasadení a každé 3 hodiny, takže zmena s dátumom "od"/"do"
@@ -19,6 +20,9 @@ import re
 import sys
 from datetime import date, datetime, timedelta, timezone
 from urllib.parse import quote
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import kalendar  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 VOPRED = PO = 7   # koľko dní pred zmenou a po nej (aj pred koncom dočasnej zmeny) ju web hlási
@@ -110,7 +114,7 @@ def rozvrh(t, oznam):
                     f'<span class="hs-p">{e(x["miesto"])}</span>{pozn_html}</li>')
         karty.append(f'<article class="card"><div class="kicker" style="letter-spacing:1px">{e(x["skupina"])}</div>'
                      f'<h3>{e(x["den"])} {e(x["cas"])}</h3><div class="row">{PIN}<span>{e(x["miesto"])}</span></div>'
-                     f'{box_html}{mapa_html}</article>')
+                     f'{box_html}{mapa_html}{kalendar.trening_odkazy(x)}</article>')
         eng.append(f'<strong>{e(x.get("en_skupina") or x["skupina"])}:</strong> {e(x.get("en_den") or x["den"])} {e(x["cas"])}, '
                    f'{e(x.get("en_miesto") or x["miesto"])}.{zm}')
     oz = ('<div id="oznam" class="oznam" role="status">' + "".join(f"<p>{m}</p>" for m in msgs) + "</div>") if msgs \
@@ -147,7 +151,9 @@ def main():
     d = load("treningy.json")
     today = dnes()
     t = [stav(x, today) for x in d.get("treningy", []) if x.get("den") and x.get("cas")]
-    bloky = {**rozvrh(t, d.get("oznam", "")), **whatsapp(k)}
+    akcie = load("akcie.json").get("akcie", [])
+    bloky = {**rozvrh(t, d.get("oznam", "")), **whatsapp(k), **kalendar.akcie_bloky(akcie, today)}
+    kalendar.zapis_kalendare(ROOT, [x for x in d.get("treningy", []) if x.get("den") and x.get("cas")], akcie, today)
     zmenene = 0
     for path in glob.glob(os.path.join(ROOT, "*.html")):
         old = open(path, encoding="utf-8").read()
@@ -156,7 +162,7 @@ def main():
             open(path, "w", encoding="utf-8", newline="\n").write(new)
             zmenene += 1
     hl = [h for _, h in t if h]
-    print(f"Stránky: {zmenene} upravených, dnes {today}, hlásení zmien: {len(hl)}")
+    print(f"Stránky: {zmenene} upravených, dnes {today}, hlásení zmien: {len(hl)}, akcií: {len(akcie)}")
 
 
 if __name__ == "__main__":

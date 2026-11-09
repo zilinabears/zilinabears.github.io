@@ -3,3 +3,4 @@ data/ragby.json
 __pycache__/
 *.pyc
 *.patch
+kalendar/
