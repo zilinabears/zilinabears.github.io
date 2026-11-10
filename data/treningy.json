@@ -19,7 +19,14 @@
       "mapa": "https://maps.app.goo.gl/PjMVvW672uVLpJYTA",
       "en_skupina": "Žilina children",
       "en_den": "Wednesdays",
-      "en_miesto": "Bôrik park"
+      "en_miesto": "Bôrik park",
+	  "zmena":
+	  {
+		"od": "2026-11-11",
+		"miesto": "Telocvičňa v žilinskej teplárni",
+		"mapa": "https://maps.app.goo.gl/iWfzGtFoZqtFJgkA8",
+		"en_miesto": "MH Teplárenský holding's gym"
+	  }
     },
     {
       "skupina": "Žilina · Dorast a dospelí",
