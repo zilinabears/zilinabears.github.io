@@ -86,6 +86,14 @@
       m.hidden = !m.querySelector(".akcia:not([hidden])");
     });
   });
+  // tlačidlá zdieľania (detail akcie): na mobile ponuka zdieľania, inak odkaz na WhatsApp
+  document.querySelectorAll("[data-share]").forEach((b) => {
+    if (navigator.share) b.addEventListener("click", (ev) => {
+      ev.preventDefault();
+      navigator.share({ text: b.dataset.text, url: b.dataset.url }).catch(() => {});
+    });
+  });
+
   // na stránke akcií skočiť na najbližšiu akciu
   const naj = document.querySelector("#akcie-list #najblizsia");
   if (naj && !location.hash) naj.scrollIntoView({ block: "start" });

@@ -97,4 +97,7 @@ def main():
 
 
 if __name__ == "__main__":
+    import kalendar
+    if kalendar.prirad_id(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))):
+        print("Akciám bez id boli pridelené id v data/akcie.json")
     sys.exit(main())

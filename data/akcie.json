@@ -2,6 +2,7 @@
   "_navod": "Akcia = blok { ... } s čiarkou za ním. datum RRRR-MM-DD, kategoria: U8, U10, U12, U14, U16, Dospelí, Veteráni 35+ alebo Všetci (viac naraz ako zoznam: [\"U8\", \"U10\", \"U12\"]). Voliteľne: do (posledný deň viacdňovej akcie), miesto (adresa), mapa, zaciatok, zraz (čas), zraz_miesto, popis, vysledok (text, napr. \"24:12\", alebo pre viac družstiev {\"U10 A\": \"1. miesto\", \"U10 B\": \"4. miesto\"}). Kým nie je vyplnený zraz, web napíše, že ho upresníme v týždni pred akciou.",
   "akcie": [
     {
+      "id": "2026-09-05-turnaj-u8-u10-u12-vyskov",
       "datum": "2026-09-05",
       "kategoria": [
         "U8",
@@ -13,6 +14,7 @@
       "zaciatok": "cca 9:00"
     },
     {
+      "id": "2026-09-05-u16-petrovice-praha",
       "datum": "2026-09-05",
       "kategoria": "U16",
       "nazov": "U16 – Petrovice Praha",
@@ -20,6 +22,7 @@
       "zaciatok": "cca 9:00"
     },
     {
+      "id": "2026-09-06-u14-ricany-praha",
       "datum": "2026-09-06",
       "kategoria": "U14",
       "nazov": "U14 – Říčany Praha",
@@ -27,6 +30,7 @@
       "zaciatok": "cca 9:00"
     },
     {
+      "id": "2026-09-12-turnaj-u8-u10-u12-dragon-brno",
       "datum": "2026-09-12",
       "kategoria": [
         "U8",
@@ -38,6 +42,7 @@
       "zaciatok": "cca 9:00"
     },
     {
+      "id": "2026-09-12-u16-dragon-brno",
       "datum": "2026-09-12",
       "kategoria": "U16",
       "nazov": "U16 – Dragon Brno",
@@ -45,6 +50,7 @@
       "zaciatok": "cca 9:00"
     },
     {
+      "id": "2026-09-13-u14-tatra-praha",
       "datum": "2026-09-13",
       "kategoria": "U14",
       "nazov": "U14 – Tatra Praha",
@@ -52,6 +58,7 @@
       "zaciatok": "cca 9:00"
     },
     {
+      "id": "2026-09-19-turnaj-u8-u10-u12-havirov",
       "datum": "2026-09-19",
       "kategoria": [
         "U8",
@@ -63,6 +70,7 @@
       "zaciatok": "cca 9:00"
     },
     {
+      "id": "2026-09-19-u16-babice-tatra-b-praha",
       "datum": "2026-09-19",
       "kategoria": "U16",
       "nazov": "U16 – Babice/Tatra B Praha",
@@ -71,12 +79,14 @@
       "popis": "Súper zatiaľ neistý – Babice alebo Tatra B Praha."
     },
     {
+      "id": "2026-09-19-memorial-ondreja-sekory-veteransky-turnaj",
       "datum": "2026-09-19",
       "kategoria": "Veteráni 35+",
       "nazov": "Memoriál Ondřeja Sekory – veteránsky turnaj",
       "miesto": "Bystrc, Brno, Česko"
     },
     {
+      "id": "2026-09-20-u14-petrovice-praha",
       "datum": "2026-09-20",
       "kategoria": "U14",
       "nazov": "U14 – Petrovice Praha",
@@ -84,6 +94,7 @@
       "zaciatok": "cca 9:00"
     },
     {
+      "id": "2026-09-26-turnaj-u8-u10-u12-bystrc-brno",
       "datum": "2026-09-26",
       "kategoria": [
         "U8",
@@ -95,6 +106,7 @@
       "zaciatok": "cca 9:00"
     },
     {
+      "id": "2026-10-03-turnaj-u8-u10-u12-ostrava",
       "datum": "2026-10-03",
       "kategoria": [
         "U8",
@@ -106,6 +118,7 @@
       "zaciatok": "cca 9:00"
     },
     {
+      "id": "2026-10-03-u16-bystrc-brno",
       "datum": "2026-10-03",
       "kategoria": "U16",
       "nazov": "U16 – Bystrc Brno",
@@ -113,6 +126,7 @@
       "zaciatok": "cca 9:00"
     },
     {
+      "id": "2026-10-04-u14-bystrc-brno",
       "datum": "2026-10-04",
       "kategoria": "U14",
       "nazov": "U14 – Bystrc Brno",
@@ -120,6 +134,7 @@
       "zaciatok": "cca 9:00"
     },
     {
+      "id": "2026-10-10-turnaj-u8-u10-u12-olomouc",
       "datum": "2026-10-10",
       "kategoria": [
         "U8",
@@ -131,6 +146,7 @@
       "zaciatok": "cca 9:00"
     },
     {
+      "id": "2026-10-10-u16-babice-tatra-b-praha",
       "datum": "2026-10-10",
       "kategoria": "U16",
       "nazov": "U16 – Babice/Tatra B Praha",
@@ -139,6 +155,7 @@
       "popis": "Súper zatiaľ neistý – Babice alebo Tatra B Praha."
     },
     {
+      "id": "2026-10-11-u14-vyskov-ostrava",
       "datum": "2026-10-11",
       "kategoria": "U14",
       "nazov": "U14 – Vyškov/Ostrava",
@@ -147,6 +164,7 @@
       "popis": "Súper zatiaľ neistý – Vyškov alebo Ostrava."
     },
     {
+      "id": "2026-10-17-u16-slavie-praha",
       "datum": "2026-10-17",
       "kategoria": "U16",
       "nazov": "U16 – Slávie Praha",
@@ -154,6 +172,7 @@
       "zaciatok": "cca 9:00"
     },
     {
+      "id": "2026-10-18-turnaj-juvenia-krakov",
       "datum": "2026-10-18",
       "kategoria": [
         "U8",
@@ -165,6 +184,7 @@
       "miesto": "Krakov, Poľsko"
     },
     {
+      "id": "2026-10-24-turnaj-u8-u10-u12-zlin",
       "datum": "2026-10-24",
       "kategoria": [
         "U8",
@@ -176,6 +196,7 @@
       "zaciatok": "cca 9:00"
     },
     {
+      "id": "2026-10-24-u16-tatra-praha",
       "datum": "2026-10-24",
       "kategoria": "U16",
       "nazov": "U16 – Tatra Praha",
@@ -183,6 +204,7 @@
       "zaciatok": "cca 9:00"
     },
     {
+      "id": "2026-10-25-u14-praga-praha",
       "datum": "2026-10-25",
       "kategoria": "U14",
       "nazov": "U14 – Praga Praha",
@@ -190,6 +212,7 @@
       "zaciatok": "cca 9:00"
     },
     {
+      "id": "2026-11-01-u14-olomouc-zlin",
       "datum": "2026-11-01",
       "kategoria": "U14",
       "nazov": "U14 – Olomouc/Zlín",
@@ -198,6 +221,7 @@
       "popis": "Súper zatiaľ neistý – Olomouc alebo Zlín."
     },
     {
+      "id": "2026-11-07-u16-sparta-praha",
       "datum": "2026-11-07",
       "kategoria": "U16",
       "nazov": "U16 – Sparta Praha",
@@ -205,6 +229,7 @@
       "zaciatok": "cca 9:00"
     },
     {
+      "id": "2026-11-08-u14-akademie-praha",
       "datum": "2026-11-08",
       "kategoria": "U14",
       "nazov": "U14 – Akademie Praha",
@@ -212,13 +237,14 @@
       "zaciatok": "cca 9:00"
     },
     {
+      "id": "2026-11-14-priatelsky-zapas-svk-alb-turnaj-deti",
       "datum": "2026-11-14",
       "kategoria": "Všetci",
       "nazov": "Priateľský zápas SVK–ALB + turnaj detí",
       "miesto": "Piešťany, Kuzmányho 15, Slovensko",
-	  "mapa": "https://maps.app.goo.gl/2mWFptfsUhBkxzyQ8",
-	  "zraz": "9:00",
-	  "zraz_miesto": "Parkovisko Štadión, Piešťany",
+      "mapa": "https://maps.app.goo.gl/2mWFptfsUhBkxzyQ8",
+      "zraz": "9:00",
+      "zraz_miesto": "Parkovisko Štadión, Piešťany",
       "zaciatok": "10:00"
     }
   ]

@@ -151,6 +151,7 @@ def main():
     d = load("treningy.json")
     today = dnes()
     t = [stav(x, today) for x in d.get("treningy", []) if x.get("den") and x.get("cas")]
+    kalendar.prirad_id(ROOT)
     akcie = load("akcie.json").get("akcie", [])
     bloky = {**rozvrh(t, d.get("oznam", "")), **whatsapp(k), **kalendar.akcie_bloky(akcie, today)}
     kalendar.zapis_kalendare(ROOT, [x for x in d.get("treningy", []) if x.get("den") and x.get("cas")], akcie, today)
@@ -161,6 +162,7 @@ def main():
         if new != old:
             open(path, "w", encoding="utf-8", newline="\n").write(new)
             zmenene += 1
+    kalendar.zapis_detaily(ROOT, akcie, today)
     hl = [h for _, h in t if h]
     print(f"Stránky: {zmenene} upravených, dnes {today}, hlásení zmien: {len(hl)}, akcií: {len(akcie)}")
 

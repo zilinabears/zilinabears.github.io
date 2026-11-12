@@ -8,6 +8,7 @@ Vytvára priečinok kalendar/ (negeneruje sa do gitu):
 a HTML bloky pre index.html a akcie.html.
 """
 import html
+import json
 import os
 import re
 import unicodedata
@@ -22,6 +23,8 @@ TRVANIE_MIN = 90                                                # dĺžka tréni
 DNI = {"pondelok": 0, "utorok": 1, "streda": 2, "štvrtok": 3, "piatok": 4, "sobota": 5, "nedeľa": 6}
 DEN_NAZOV = ["pondelok", "utorok", "streda", "štvrtok", "piatok", "sobota", "nedeľa"]
 MES = ["jan", "feb", "mar", "apr", "máj", "jún", "júl", "aug", "sep", "okt", "nov", "dec"]
+MES_GEN = ["januára", "februára", "marca", "apríla", "mája", "júna", "júla", "augusta", "septembra",
+           "októbra", "novembra", "decembra"]
 MESIAC = ["Január", "Február", "Marec", "Apríl", "Máj", "Jún", "Júl", "August", "September", "Október", "November", "December"]
 e = lambda s: html.escape(str(s or ""), quote=True)
 
@@ -45,7 +48,8 @@ END:VTIMEZONE"""
 
 
 def slug(s):
-    s = unicodedata.normalize("NFKD", str(s)).encode("ascii", "ignore").decode().lower()
+    s = re.sub(r"[–—·/]", " ", str(s))
+    s = unicodedata.normalize("NFKD", s).encode("ascii", "ignore").decode().lower()
     return re.sub(r"[^a-z0-9]+", "-", s).strip("-")
 
 
@@ -162,7 +166,45 @@ def dni(a):
 
 
 def akcia_id(a):
-    return a.get("id") or f"{a['datum']}-{slug(a['nazov'])}"[:80]
+    return a.get("id") or f"{a['datum']}-{'-'.join(slug(a['nazov']).split('-')[:6])}"
+
+
+def prirad_id(root):
+    """Akciám bez id (alebo s duplicitným id) vytvorí id a zapíše ho do data/akcie.json.
+    Id sa potom už nemení, takže odkaz na akciu prežije zmenu dátumu, názvu aj kategórie."""
+    path = os.path.join(root, "data", "akcie.json")
+    with open(path, encoding="utf-8") as f:
+        d = json.load(f)
+    videne, zmena = set(), False
+    for i, a in enumerate(d.get("akcie", [])):
+        aid = a.get("id")
+        if not aid or aid in videne:
+            if aid:
+                print(f"::warning::Akcia „{a.get('nazov')}“ má rovnaké id ako iná akcia ({aid}), dostáva nové.")
+            zaklad = akcia_id({k: v for k, v in a.items() if k != "id"})
+            aid, n = zaklad, 2
+            while aid in videne:
+                aid, n = f"{zaklad}-{n}", n + 1
+            d["akcie"][i] = {"id": aid, **{k: v for k, v in a.items() if k != "id"}}
+            zmena = True
+        videne.add(aid)
+    if zmena:
+        with open(path, "w", encoding="utf-8", newline="\n") as f:
+            f.write(json.dumps(d, ensure_ascii=False, indent=2) + "\n")
+    return zmena
+
+
+def detail_url(a):
+    return f"{SITE}/akcia/{akcia_id(a)}"
+
+
+def kedy(a):
+    od, do = dni(a)
+    if od == do:
+        return f"{DEN_NAZOV[od.weekday()]} {od.day}. {MES_GEN[od.month - 1]} {od.year}"
+    if od.month == do.month:
+        return f"{od.day}. – {do.day}. {MES_GEN[do.month - 1]} {do.year}"
+    return f"{od.day}. {MES_GEN[od.month - 1]} – {do.day}. {MES_GEN[do.month - 1]} {do.year}"
 
 
 def popis(a, today):
@@ -177,7 +219,7 @@ def popis(a, today):
         r.append(f"Výsledok{' ' + tim if tim else ''}: {v}")
     if a.get("popis"):
         r.append(a["popis"])
-    r.append(f"Aktuálny zraz a zmeny: {SITE}/akcie")
+    r.append(f"Detail a zmeny: {detail_url(a)}")
     return "\n".join(r)
 
 
@@ -192,6 +234,7 @@ def akcia_event(a, today):
         ev += [f"DTSTART;VALUE=DATE:{od:%Y%m%d}", f"DTEND;VALUE=DATE:{do + timedelta(days=1):%Y%m%d}", "TRANSP:TRANSPARENT"]
     if a.get("miesto"):
         ev.append(f"LOCATION:{esc_ics(a['miesto'])}")
+    ev.append(f"URL:{detail_url(a)}")
     ev.append(f"DESCRIPTION:{esc_ics(popis(a, today))}")
     return ev
 
@@ -216,15 +259,12 @@ def datum_html(a):
 
 
 def akcia_html(a, today, plna=True, stav=""):
-    """stav: "" budúca, "minula" odohratá, "najblizsia" zvýraznená najbližšia."""
+    """Dlaždica akcie s odkazom na detail. stav: "" budúca, "minula" odohratá, "najblizsia" zvýraznená."""
     kats = kat(a)
     badges = "".join(f'<span class="badge akcia-k">{e(k)}</span>' for k in kats)
     if stav == "najblizsia":
         badges = '<span class="badge ak-naj">Najbližšia akcia</span>' + badges
-    riadky = []
-    if a.get("miesto"):
-        m = e(a["miesto"])
-        riadky.append(f'<p class="ak-m"><a href="{e(a["mapa"])}">{m} →</a></p>' if a.get("mapa") else f'<p class="ak-m">{m}</p>')
+    riadky = [f'<p class="ak-m">{e(a["miesto"])}</p>'] if a.get("miesto") else []
     vys = vysledky(a)
     if vys:
         li = "".join(f"<li>{'<b>' + e(t) + '</b> ' if t else ''}{e(v)}</li>" for t, v in vys)
@@ -238,16 +278,73 @@ def akcia_html(a, today, plna=True, stav=""):
                 riadky.append(f'<p class="ak-z"><b>Zraz:</b> {z}</p>')
             else:
                 riadky.append('<p class="ak-z ak-z0">Zraz upresníme v týždni pred akciou.</p>')
-            if a.get("popis"):
-                riadky.append(f"<p>{e(a['popis'])}</p>")
-            riadky.append(f'<p class="ak-b">Do kalendára: <a href="{e(google_link(a, today))}" target="_blank" rel="noopener">Google</a> · '
-                          f'<a href="kalendar/akcia/{e(akcia_id(a))}.ics">Apple / iné</a></p>')
     data = e(" ".join(slug(k) for k in kats))
     cls = f"post akcia {stav}".strip()
     idattr = ' id="najblizsia"' if stav == "najblizsia" else ""
-    return (f'<article class="{cls}"{idattr} data-kat="{data}">{datum_html(a)}<div class="body">'
+    return (f'<a class="{cls}"{idattr} href="akcia/{e(akcia_id(a))}.html" data-kat="{data}">{datum_html(a)}<span class="body">'
             f'<span class="meta">{badges}</span>'
-            f'<h3>{e(a["nazov"])}</h3>{"".join(riadky)}</div></article>')
+            f'<h3>{e(a["nazov"])}</h3>{"".join(riadky)}<span class="ak-viac">Detail akcie →</span></span></a>')
+
+
+def detail_html(a, today):
+    """Obsah <main> stránky jednej akcie."""
+    minula = dni(a)[1] < today
+    badges = "".join(f'<span class="badge akcia-k">{e(k)}</span>' for k in kat(a))
+    info = []
+    if a.get("miesto"):
+        mapa = f' <a href="{e(a["mapa"])}">Otvoriť v mape →</a>' if a.get("mapa") else ""
+        info.append(f"<div><dt>Miesto</dt><dd>{e(a['miesto'])}{mapa}</dd></div>")
+    if a.get("zaciatok") and not minula:
+        info.append(f"<div><dt>Začiatok</dt><dd>{e(a['zaciatok'])}</dd></div>")
+    if not minula:
+        if a.get("zraz"):
+            z = ", ".join(e(v) for v in (a.get("zraz"), a.get("zraz_miesto")) if v)
+            info.append(f'<div class="ak-z"><dt>Zraz</dt><dd>{z}</dd></div>')
+        else:
+            info.append('<div class="ak-z ak-z0"><dt>Zraz</dt><dd>Upresníme v týždni pred akciou.</dd></div>')
+    vys = vysledky(a)
+    if vys:
+        li = "".join(f"<li>{'<b>' + e(t) + '</b> ' if t else ''}{e(v)}</li>" for t, v in vys)
+        info.append(f"<div><dt>Výsledok</dt><dd><ul>{li}</ul></dd></div>")
+    if a.get("popis"):
+        info.append(f"<div><dt>Poznámka</dt><dd>{e(a['popis'])}</dd></div>")
+    text = f"{a['nazov']} – {kedy(a)}"
+    wa = "https://wa.me/?text=" + quote(f"{text}: {detail_url(a)}")
+    tl = [f'<a class="btn btn-y" href="{e(wa)}" data-share data-text="{e(text)}" data-url="{e(detail_url(a))}">Pošli ďalej</a>']
+    if not minula:
+        tl += [f'<a class="btn btn-d" href="{e(google_link(a, today))}" target="_blank" rel="noopener">Do Google kalendára</a>',
+               f'<a class="btn btn-d" href="kalendar/akcia/{e(akcia_id(a))}.ics">Do Apple / iného kalendára</a>']
+    return (f'<main>\n<section class="dark"><div class="wrap ak-hero">'
+            f'<a class="ak-spat" href="akcie.html">← Všetky akcie</a><div class="ak-ks">{badges}</div>'
+            f'<h1 class="disp">{e(a["nazov"])}</h1><p class="ak-kedy">{e(kedy(a))}</p></div></section>\n'
+            f'<div class="wrap ak-detail"><dl class="ak-info">{"".join(info)}</dl>'
+            f'<div class="ak-tl">{"".join(tl)}</div></div>\n</main>')
+
+
+def detail_stranka(sablona, a, today):
+    """Celá stránka akcie z akcie.html: iná hlavička, <base> a obsah <main>."""
+    opis = " · ".join(v for v in [kedy(a), a.get("miesto", ""),
+                                  ("Zraz " + ", ".join(v for v in (a.get("zraz"), a.get("zraz_miesto")) if v)) if a.get("zraz") else ""] if v)
+    nazov = f"{a['nazov']} – Žilina Bears"
+    h = sablona.replace('<meta charset="utf-8">', '<meta charset="utf-8">\n<base href="/">', 1)
+    h = re.sub(r"<title>.*?</title>", lambda m: f"<title>{e(nazov)}</title>", h, count=1, flags=re.S)
+    for attr, val in [('name="description"', opis), ('property="og:title"', nazov), ('property="og:description"', opis)]:
+        h = re.sub(rf'<meta {attr} content="[^"]*">', lambda m: f'<meta {attr} content="{e(val)}">', h, count=1)
+    meta = (f'<meta property="og:url" content="{e(detail_url(a))}">\n'
+            f'<meta property="og:image" content="{SITE}/assets/img/hero.jpg">\n')
+    h = h.replace('<meta property="og:type" content="website">', '<meta property="og:type" content="website">\n' + meta, 1)
+    return re.sub(r"<main>.*?</main>", lambda m: detail_html(a, today), h, count=1, flags=re.S)
+
+
+def zapis_detaily(root, akcie, today):
+    out = os.path.join(root, "akcia")
+    os.makedirs(out, exist_ok=True)
+    for f in os.listdir(out):
+        os.remove(os.path.join(out, f))
+    sablona = open(os.path.join(root, "akcie.html"), encoding="utf-8").read()
+    for a in akcie:
+        with open(os.path.join(out, f"{akcia_id(a)}.html"), "w", encoding="utf-8", newline="\n") as f:
+            f.write(detail_stranka(sablona, a, today))
 
 
 def sezona(today):

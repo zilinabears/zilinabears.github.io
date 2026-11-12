@@ -43,6 +43,10 @@ Veteráni 35+ alebo Všetci, viac naraz ako `["U8", "U10", "U12"]`), `nazov` a v
 `zaciatok`, `zraz`, `zraz_miesto`, `popis` a `vysledok` (text alebo `{"U10 A": "1. miesto"}` pre viac družstiev). Kým nie je vyplnený `zraz`, web aj kalendár napíšu, že ho
 upresníme v týždni pred akciou. Web ukazuje celú sezónu od 1. septembra po mesiacoch, odohraté akcie vyblednuté a najbližšiu zvýraznenú.
 
+**Odkaz na akciu:** každá akcia má vlastnú stránku `/akcia/<id>`, ktorá sa dá poslať. Pole `id`
+vytvorí build sám pri prvom spracovaní a zapíše ho do `akcie.json`. Nemeň ho ani nemaž, inak prestanú
+fungovať rozoslané odkazy. Pri kopírovaní bloku novej akcie riadok `id` vymaž.
+
 **Kalendáre:** build vytvára `kalendar/treningy-*.ics` (opakované tréningy vrátane zmien),
 `kalendar/akcie*.ics` (odber podľa kategórie) a `kalendar/akcia/*.ics` (jedna akcia). Necommitujú sa.
 
