@@ -218,7 +218,8 @@
       "miesto": "Piešťany, Kuzmányho 15, Slovensko",
 	  "mapa": "https://maps.app.goo.gl/2mWFptfsUhBkxzyQ8",
 	  "zraz": "9:00",
-	  "zraz_miesto": "Parkovisko Štadión, Piešťany"
+	  "zraz_miesto": "Parkovisko Štadión, Piešťany",
+      "zaciatok": "10:00"
     }
   ]
 }
