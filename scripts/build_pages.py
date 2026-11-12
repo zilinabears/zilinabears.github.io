@@ -135,7 +135,19 @@ def whatsapp(k):
             "wa-script": script}
 
 
-def apply(s, bloky, k):
+def verzie():
+    """Krátky odtlačok CSS a JS: pri zmene súboru sa zmení adresa, takže prehliadač nenačíta starú verziu z cache."""
+    import hashlib
+    out = {}
+    for rel in ("assets/css/style.css", "assets/js/site.js"):
+        with open(os.path.join(ROOT, rel), "rb") as f:
+            out[rel] = hashlib.sha1(f.read()).hexdigest()[:8]
+    return out
+
+
+def apply(s, bloky, k, ver=None):
+    for rel, h in (ver or {}).items():
+        s = re.sub(rf'((?:href|src)="){re.escape(rel)}(?:\?v=[0-9a-f]*)?"', lambda m: f'{m.group(1)}{rel}?v={h}"', s)
     for name, val in bloky.items():
         s = re.sub(rf"(<!--@{name}-->).*?(<!--/@{name}-->)", lambda m: m.group(1) + val + m.group(2), s, flags=re.S)
     tel = lambda c: "tel:+" + re.sub(r"\D", "", c)
@@ -155,10 +167,11 @@ def main():
     akcie = load("akcie.json").get("akcie", [])
     bloky = {**rozvrh(t, d.get("oznam", "")), **whatsapp(k), **kalendar.akcie_bloky(akcie, today)}
     kalendar.zapis_kalendare(ROOT, [x for x in d.get("treningy", []) if x.get("den") and x.get("cas")], akcie, today)
+    ver = verzie()
     zmenene = 0
     for path in glob.glob(os.path.join(ROOT, "*.html")):
         old = open(path, encoding="utf-8").read()
-        new = apply(old, bloky, k)
+        new = apply(old, bloky, k, ver)
         if new != old:
             open(path, "w", encoding="utf-8", newline="\n").write(new)
             zmenene += 1
