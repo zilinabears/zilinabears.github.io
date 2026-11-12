@@ -215,7 +215,10 @@
       "datum": "2026-11-14",
       "kategoria": "Všetci",
       "nazov": "Priateľský zápas SVK–ALB + turnaj detí",
-      "miesto": "Piešťany, Slovensko"
+      "miesto": "Piešťany, Kuzmányho 15, Slovensko",
+	  "mapa": "https://maps.app.goo.gl/2mWFptfsUhBkxzyQ8",
+	  "zraz": "9:00",
+	  "zraz_miesto": "Parkovisko Štadión, Piešťany"
     }
   ]
 }
