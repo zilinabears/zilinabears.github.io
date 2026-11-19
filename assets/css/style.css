@@ -229,3 +229,10 @@ a.post.akcia{cursor:pointer}
 .ak-info .ak-z{background:#F1F7D2}.ak-info .ak-z0 dd{color:var(--muted);font-style:italic}
 .ak-tl{display:flex;flex-wrap:wrap;gap:12px}
 @media (max-width:560px){.ak-info>div{grid-template-columns:1fr;gap:4px}.ak-tl .btn{flex:1 1 100%}}
+
+/* ---------- kluby na Slovensku */
+a.card.klub{display:flex;flex-direction:column;gap:6px;padding:24px 28px;text-decoration:none;color:inherit;transition:transform .15s}
+a.card.klub:hover{transform:translateY(-2px)}
+a.card.klub h3{margin:0}a.card.klub .more{margin-top:auto;padding-top:8px}
+.card.sru{border-left:6px solid var(--accent)}
+.kluby-link{color:var(--accent);font-weight:700;align-self:flex-start}
