@@ -50,6 +50,10 @@ fungovať rozoslané odkazy. Pri kopírovaní bloku novej akcie riadok `id` vyma
 **Kalendáre:** build vytvára `kalendar/treningy-*.ics` (opakované tréningy vrátane zmien),
 `kalendar/akcie*.ics` (odber podľa kategórie) a `kalendar/akcia/*.ics` (jedna akcia). Necommitujú sa.
 
+**Overlay pri udalosti:** v `data/overlay.json`. Overlay sa ukáže od dátumu `od` do `do` na prvej
+stránke, ktorú návštevník otvorí, a pri tej istej návšteve už nie. Zavrieť sa dá krížikom, klávesom Esc
+alebo kliknutím mimo okna. Návod na polia je priamo v súbore.
+
 **Telefón a WhatsApp:** číslo a predvolený text WhatsApp správy sú v `data/kontakt.json`.
 Všetky tlačidlá WhatsApp vedú na `napiste-nam.html` (pre QR na letáku: `/napiste-nam`,
 `/napiste-nam?z=uniza`, `/treningy`). Texty pre jednotlivé tlačidlá sú v `"spravy"`.

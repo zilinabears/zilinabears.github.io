@@ -197,4 +197,36 @@
     lb.addEventListener("click", (e) => { if (e.target === lb || e.target.tagName === "BUTTON") close(); });
     document.addEventListener("keydown", (e) => { if (e.key === "Escape") close(); });
   }
+
+  // ---------- overlay pri udalosti (data/overlay.json): raz za návštevu, podľa dátumov od–do
+  (async () => {
+    let list;
+    try { list = (await (await fetch("data/overlay.json", { cache: "no-cache" })).json()).overlaye || []; } catch { return; }
+    const d = new Date();
+    const dnes = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+    const o = list.find((x) => x.id && x.nadpis && x.od <= dnes && dnes <= x.do);
+    if (!o) return;
+    const key = "zb-overlay-" + o.id;
+    try { if (sessionStorage.getItem(key)) return; sessionStorage.setItem(key, "1"); } catch { /* bez úložiska ukázať */ }
+    const el = (tag, cls, text) => { const n = document.createElement(tag); if (cls) n.className = cls; if (text) n.textContent = text; return n; };
+    const wrap = el("div", "ovl");
+    wrap.setAttribute("role", "dialog"); wrap.setAttribute("aria-modal", "true"); wrap.setAttribute("aria-labelledby", "ovl-h");
+    const box = el("div", "ovl-box");
+    const x = el("button", "ovl-x"); x.type = "button"; x.setAttribute("aria-label", "Zavrieť"); x.innerHTML = "&times;";
+    box.append(x);
+    if (o.obrazok) { const img = el("img", "ovl-img"); img.src = o.obrazok; img.alt = o.obrazok_alt || ""; box.append(img); }
+    const b = el("div", "ovl-b");
+    if (o.kicker) b.append(el("div", "kicker", o.kicker));
+    const h = el("h2", "", o.nadpis); h.id = "ovl-h"; b.append(h);
+    String(o.text || "").split(/\n\s*\n/).filter(Boolean).forEach((t) => b.append(el("p", "", t)));
+    if (o.tlacidlo && o.odkaz) { const a = el("a", "btn btn-y", o.tlacidlo); a.href = o.odkaz; b.append(a); }
+    box.append(b); wrap.append(box); document.body.append(wrap);
+    document.body.classList.add("ovl-open");
+    const close = () => { wrap.remove(); document.body.classList.remove("ovl-open"); document.removeEventListener("keydown", onKey); };
+    const onKey = (e) => { if (e.key === "Escape") close(); };
+    x.addEventListener("click", close);
+    wrap.addEventListener("click", (e) => { if (e.target === wrap) close(); });
+    document.addEventListener("keydown", onKey);
+    x.focus();
+  })();
 })();

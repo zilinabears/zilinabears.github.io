@@ -1,0 +1,17 @@
+{
+  "_navod": "Overlay = blok { ... } v zozname overlaye. Zobrazí sa od dátumu od do dátumu do (vrátane, RRRR-MM-DD) na prvej stránke, ktorú návštevník otvorí, a pri tej istej návšteve už nie. id musí byť pri každom overlayi iné. Voliteľné: kicker (malý text nad nadpisom), obrazok (cesta, napr. assets/img/overlay/festival.jpg), obrazok_alt, tlacidlo a odkaz. Prázdny riadok v texte (\\n\\n) = nový odsek. Ak je naraz aktívnych viac overlayov, ukáže sa prvý.",
+  "overlaye": [
+    {
+      "id": "ukazka",
+      "od": "2026-01-01",
+      "do": "2026-01-02",
+      "kicker": "Ukážka",
+      "nadpis": "Nadpis overlaya",
+      "text": "Prvý odsek textu.\n\nDruhý odsek textu.",
+      "obrazok": "assets/img/hero.jpg",
+      "obrazok_alt": "Popis obrázka",
+      "tlacidlo": "Viac o akcii",
+      "odkaz": "akcie.html"
+    }
+  ]
+}

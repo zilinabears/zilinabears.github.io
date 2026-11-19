@@ -236,3 +236,16 @@ a.card.klub:hover{transform:translateY(-2px)}
 a.card.klub h3{margin:0}a.card.klub .more{margin-top:auto;padding-top:8px}
 .card.sru{border-left:6px solid var(--accent)}
 .kluby-link{color:var(--accent);font-weight:700;align-self:flex-start}
+
+/* ---------- overlay pri udalosti */
+body.ovl-open{overflow:hidden}
+.ovl{position:fixed;inset:0;z-index:100;background:rgba(14,42,28,.6);display:flex;align-items:center;justify-content:center;padding:16px}
+.ovl-box{position:relative;background:#fff;border-radius:16px;max-width:560px;width:100%;max-height:calc(100vh - 32px);overflow:auto;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.ovl-img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
+.ovl-b{padding:28px 32px 32px;display:flex;flex-direction:column;gap:12px}
+.ovl-b h2{margin:0;font-family:"Barlow Condensed",sans-serif;font-weight:800;text-transform:uppercase;font-size:34px;line-height:1.05;color:var(--dark)}
+.ovl-b p{margin:0;color:var(--ink)}
+.ovl-b .btn{align-self:flex-start;margin-top:8px}
+.ovl-x{position:absolute;top:12px;right:12px;width:44px;height:44px;border:0;border-radius:50%;background:rgba(255,255,255,.92);color:var(--dark);font-size:30px;line-height:1;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.25)}
+.ovl-x:hover,.ovl-x:focus-visible{background:var(--accent)}
+@media (max-width:560px){.ovl-b{padding:22px 20px 24px}.ovl-b h2{font-size:28px}.ovl-b .btn{align-self:stretch;text-align:center}}
